@@ -74,7 +74,7 @@ $email_startup = $_SESSION["emailStartup"];
             $result = mysqli_query($conn, $query);
             
             if(mysqli_num_rows($result) == 0) {
-                echo "<h1> Voce ainda nao possui nenhum post! </h1>"; 
+                echo "<h5> Você ainda nao possui nenhum post! </h5>"; 
             } else {
 
                 echo "<section class='post-container'> ";

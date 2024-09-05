@@ -1,5 +1,3 @@
-
-
 body {
     font-family: "Inter", sans-serif;
     box-sizing: border-box;
@@ -25,7 +23,7 @@ ul {
     color: white;
     text-decoration: none;
 }
-  
+
 .container-header li {
     display: inline;
     margin-right: 10px;
@@ -36,3 +34,53 @@ ul {
     fill: white;
 }
   
+h1{
+    width: 100px;
+    margin: 1rem auto;
+    color: #040950;
+}
+
+.card{
+    width: 35%;
+    height: 40rem;
+    margin: 2rem;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    display: flex;
+    display: flex;
+    justify-content: center;
+}
+
+.section{
+    width: 95vw;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card-container{
+    width: 80%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: space-around;
+}
+
+.card-post-header{
+    height: 35%;
+}
+
+.card-post-container{
+    height: 60%;
+    overflow-y: scroll;
+}
+
+.card-post-footer{
+    height: 5%;
+    display: flex;
+    justify-content: space-around;
+    color: #040950;
+}
