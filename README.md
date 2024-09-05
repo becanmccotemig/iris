@@ -1,5 +1,5 @@
-# Projeto de Inovação Tecnológica (PIT)
-Bem-vindo ao Projeto de Inovação Tecnológica (PIT)! Este projeto foi desenvolvido com o objetivo de conectar empresas de pequeno porte com investidores ideais, utilizando uma plataforma intuitiva e eficiente. A escolha de PHP como linguagem principal garante a dirigibilidade e maleabilidade necessárias para atender às necessidades específicas de nosso projeto.
+# Íris - Projeto de Inovação Tecnológica (PIT)
+Bem-vindo a íris! Um projeto desenvolvido com o objetivo de conectar empresas de pequeno porte com investidores ideais, utilizando uma plataforma intuitiva e eficiente. A escolha de PHP como linguagem principal garante a dirigibilidade e maleabilidade necessárias para atender às necessidades específicas de nosso projeto.
 
 # Visão Geral
 O PIT visa facilitar a comunicação e a parceria entre empresas e investidores, ajudando a encontrar o ajuste perfeito entre ambos. A plataforma oferece uma interface amigável e funcionalidades avançadas para otimizar o processo de investimento e colaboração.
@@ -37,13 +37,13 @@ C:\xampp\htdocs
 ## 3. Clone o repositório:
 
 ```bash
-git clone https://github.com/becanmc/pit
+git clone https://github.com/becanmccotemig/iris
 ```
 
 ## 4. Navegue até o diretório do projeto:
 
 ```bash
-cd [NOME_DO_DIRETÓRIO] #sprint1, sprint2
+cd project
 ```
 
 ## 5. Abra o Control Panel do XAMPP
@@ -53,7 +53,7 @@ cd [NOME_DO_DIRETÓRIO] #sprint1, sprint2
 ## 7. Inicie o projeto no navegador
 
 ```bash
-http://localhost/login-register/login.php
+http://localhost/iris/project/login.php
 ```
 
 # Contato
