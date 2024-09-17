@@ -17,7 +17,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="design/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Home</title>
 </head>
 <body>
@@ -43,7 +43,14 @@
                     <p class='card-post-post_startup_name'> Startup Name </p>
                     <p class='card-post-post_category'> <?php echo $row["post_category"]; ?> </p>
                     <p class='card-post-post_author'> <?php echo $row["post_author"]; ?> </p>
+                    
                 </div>
+
+                <?php 
+                        $post_id = $row['id'];
+                        $url = "post.php?id=" . urlencode($post_id);
+                        echo "<a href='$url' class='btn btn-primary'>Ver mais</a>";
+                ?>
             </div>
         </div>
         <?php 

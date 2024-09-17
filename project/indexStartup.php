@@ -78,13 +78,16 @@ $email_startup = $_SESSION["emailStartup"];
             } else {
 
                 echo "<section class='post-container'> ";
+
             
                 while($row = mysqli_fetch_assoc($result)) {
+                    $post_id = $row['id'];
+                    $url = "myPost.php?id=" . urlencode($post_id);
                     echo "
                         <div class='post'>
                             <h1> " . htmlspecialchars($row['post_title']) .  "</h1>
                             <p> " .  htmlspecialchars($row['post_description']) . " </p>
-                            <button> Ver mais </button>
+                            <a href='$url' class='btn btn-primary'>Ver mais</a>
                         </div>
                     ";
                 }

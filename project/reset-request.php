@@ -1,6 +1,5 @@
 <?php 
 
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 
@@ -8,23 +7,15 @@ require __DIR__ . '/vendor/autoload.php';
 
 $mail = new PHPMailer();
 
+// Desative a depuração SMTP
+// $mail->SMTPDebug = SMTP::DEBUG_SERVER;
 
 $mail->isSMTP();
-
-
-$mail->SMTPDebug = SMTP::DEBUG_SERVER;
-
 $mail->Host = 'smtp.gmail.com';
-
 $mail->Port = 587; // ou 587
-
 $mail->SMTPSecure = 'tls';
-
-
 $mail->SMTPAuth = true;
-
 $mail->Username = 'sofia.fernandesfs4@gmail.com';
-
 $mail->Password = 'ovjl zihd halz bbyc';
 
 if(isset($_POST["reset-request-submit"])) {
@@ -32,7 +23,7 @@ if(isset($_POST["reset-request-submit"])) {
     $selector = bin2hex(random_bytes(8)); // binary to hex
     $token = random_bytes(32);
 
-    $url = "http://localhost/login-register/create-new-password.php?selector=" . $selector . "&validator=" . bin2hex($token);
+    $url = "http://localhost/iris/iris/project/create-new-password.php?selector=" . $selector . "&validator=" . bin2hex($token);
 
     $expires = date("Y-m-d H:i:s", strtotime("+30 minutes"));
     require "database.php";
@@ -73,24 +64,17 @@ if(isset($_POST["reset-request-submit"])) {
     $subject = 'Redefina sua senha';
 
     $mail->setFrom('sofia.fernandesfs4@gmail.com', 'Sofia');
-
-
     $mail->addReplyTo('sofia.fernandesfs4@gmail.com', 'Sofia');
-    
-    
     $mail->addAddress($userEmail);
-    
-    
     $mail->Subject = $subject;
-    
     $mail->msgHTML($message);
 
     if (!$mail->send()) {
         echo 'Erro ao enviar o e-mail: '. $mail->ErrorInfo;
         exit();
     } else {
-        
         header("Location: reset-password.php?reset=success");
+        exit(); // Adicione o exit() após o redirecionamento
     }
 
 } else {
