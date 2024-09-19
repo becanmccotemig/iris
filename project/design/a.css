@@ -41,8 +41,9 @@ h1{
 }
 
 .card{
-    width: 35%;
-    height: 40rem;
+    width: 30%;
+    height: 30rem;
+    background-color: blue;
     margin: 2rem;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
