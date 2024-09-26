@@ -10,14 +10,14 @@ if (isset($_SESSION["user"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Form</title>
+    <title>Startup Sign Up</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1 class="form-group"> Cadastrar Startup </h1>
-        <form action="signupStartup-process.php" method="post" enctype="multipart/form-data">
+        <form action="../../controllers/startup/registration-process.php" method="post" enctype="multipart/form-data">
             <label> Primeiramente, insira as informações técnicas de sua startup </label>
             <div class="form-group">
                 <input type="text" class="form-control" name="startupName" placeholder="Nome">
@@ -59,10 +59,10 @@ if (isset($_SESSION["user"])) {
         </form>
         <div>
         <div>
-            <p> Já possui conta? <a href="loginStartup.php">Logar</a></p>
+            <p> Já possui conta? <a href="login.php">Logar</a></p>
         </div>
         <div>
-            <p> Deseja criar conta INVESTIDOR? <a href="registration.php"> Criar </a></p>
+            <p> Deseja criar conta INVESTIDOR? <a href="../../views/investor/registration.php"> Criar </a></p>
         </div>
       </div>
 

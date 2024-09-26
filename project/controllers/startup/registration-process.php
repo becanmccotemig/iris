@@ -1,6 +1,6 @@
 <?php
 
-require_once "database.php";
+require_once "../../database/database.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,10 +54,10 @@ require_once "database.php";
                         mysqli_stmt_bind_param($stmt,"sssssssss",$nomeStartup, $descricao, $criador, $areaAtuacao, $endereco, $contato, $link, $emailStartup, $passwordHash);
                         mysqli_stmt_execute($stmt);
                         echo "<div class='alert alert-success'> Registro feito com sucesso.</div>";
-                        echo "<p> <a href='loginStartup.php'>Login</a></p>";
+                        echo "<p> <a href='../../views/startup/login.php'>Login</a></p>";
                     }else{
                         die("<div class='alert alert-success'> Registro feito com sucesso.</div>");
-                        header("Location: loginStartup.php");
+                        header("Location: ../../views/startup/login.php.php");
                     }
                 }
                     

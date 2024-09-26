@@ -10,11 +10,11 @@
 </head>
 <body>
         <?php
-        require_once "database.php";
+        require_once "../../database/database.php";
         session_start();
 
         if (!isset($_SESSION["user"])) {
-            header("Location: login.php");
+            header("Location: ../../views/investor/login.php");
             exit();
         }
 
@@ -37,7 +37,7 @@
                 }
             }
         } else {
-            header("Location: editInfo.php");
+            header("Location: ../../views/investor/edit.php");
             exit();
         }
         ?>

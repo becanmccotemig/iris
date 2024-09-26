@@ -2,11 +2,11 @@
 session_start();
 if (isset($_POST["submit-post"], $_POST["user_id"])) {
     if (!isset($_SESSION["id"])) {
-        header("Location: loginStartup.php");
+        header("Location: ../../views/startup/login.php");
         exit();
     } else {
 
-        require_once "database.php";
+        require_once "../../database/database.php";
 
         $startup_id = $_POST["user_id"];
         $post_title = $_POST["post-title"];
@@ -25,7 +25,7 @@ if (isset($_POST["submit-post"], $_POST["user_id"])) {
                 mysqli_stmt_bind_param($stmt, "sssssi", $post_title, $post_category, $post_author, $post_description, $post_body, $startup_id);
                 
                 if (mysqli_stmt_execute($stmt)){
-                    header("Location: indexStartup.php?publicar=publicado");
+                    header("Location: ../../views/startup/index.php?publicar=publicado");
                     exit(); 
                 } else {
                     echo "<div class='alert alert-danger'> Erro ao publicar post.</div>";
@@ -36,7 +36,7 @@ if (isset($_POST["submit-post"], $_POST["user_id"])) {
         }   
     }
 }  else {
-    header("Location: login.php");
+    header("Location: ../../views/startup/login.php");
     exit();
 }
 ?>

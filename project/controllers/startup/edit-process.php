@@ -10,11 +10,11 @@
 </head>
 <body>
         <?php
-        require_once "database.php";
+        require_once "../../database/database.php";
         session_start();
 
         if (isset($_SESSION["user"])) {
-            header("Location: loginStartup.php");
+            header("Location: ../../views/startup/login.php");
             exit();
         }
 
@@ -37,13 +37,13 @@
                     mysqli_stmt_bind_param($stmt, "ssssssss", $nomeStartup, $descricao, $criador, $areaAtuacao, $endereco, $contato, $link, $emailStartup);
                     mysqli_stmt_execute($stmt);
                     echo "<div class='alert alert-success'>Informações atualizadas com sucesso.</div>";
-                    echo "<div> Para sua segurança, refaça o login.<a href='logoutStartup.php'>Clique aqui</a> </div>";
+                    echo "<div> Para sua segurança, refaça o login.<a href='logout.php'>Clique aqui</a> </div>";
                 } else {
                     echo "<div class='alert alert-danger'>Erro ao atualizar informações.</div>";
                 }
             }
         } else {
-            header("Location: editStartup.php");
+            header("Location: ../../views/startup/edit.php");
             exit();
         }
         ?>

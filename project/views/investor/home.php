@@ -8,7 +8,7 @@
         exit();
     }
 
-    require_once 'database.php';
+    require_once '../../database/database.php';
 
     $sql = "SELECT * FROM startups";
     $all_startups = $conn->query($sql);
@@ -21,7 +21,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="design/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Investor Home Page</title>
  </head>
  <body>
  <h1 class="title-home">Home</h1>
@@ -51,7 +51,7 @@
 
                 <?php 
                         $startup_id = $row['id'];
-                        $url = "startup.php?id=" . urlencode($startup_id);
+                        $url = "details-startup.php?id=" . urlencode($startup_id);
                         echo "<a href='$url' class='btn btn-primary'>Ver mais</a>";
                 ?>
             </div>

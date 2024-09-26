@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "database.php";
+require_once "../../database/database.php";
 
 if (!isset($_SESSION["user"])) {
     header("Location: login.php");
@@ -32,14 +32,14 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Form</title>
+    <title>Investor Edit Info</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1 class="form-group">Editar Investidor</h1>
-        <form action="editInfo-process.php" method="post" enctype="multipart/form-data">
+        <form action="../../controllers/investor/edit-process.php" method="post" enctype="multipart/form-data">
             <label>Edite as informações da sua Conta</label>
             <div class="form-group">
                 <input type="text" class="form-control" name="Name" placeholder="Nome" value="<?php echo htmlspecialchars($user['full_name']); ?>">
@@ -47,7 +47,7 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
             <div class="form-btn form-group">
                 <input type="submit" class="btn btn-primary" value="Atualizar" name="submitEditInfo">
             </div>
-            <p> Deseja redefinir sua senha? <a href="password.php"> Redefinir senha </a></p>
+            <p> Deseja redefinir sua senha? <a href="edit-password.php"> Redefinir senha </a></p>
         </form>
     </div>
 </body>

@@ -28,7 +28,7 @@ if (isset($_SESSION["user"])) {
 
                                 <h1 class="form-group"> Definir nova senha </h1>
 
-                                <form action="reset-password.inc.php" method="post">
+                                <form action="../controllers/reset-password.inc.php" method="post">
 
                                     <input type="hidden" name="selector" value="<?php echo $selector ?>;">
                                     <input type="hidden" name="validator" value="<?php echo $validator ?>;">

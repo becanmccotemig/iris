@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION["id"])) {
-    header("Location: loginStartup.php");
+    header("Location: login.php");
     exit();
 }
 
@@ -18,7 +18,7 @@ $user_id = $_SESSION["id"];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>Deletar Conta</title>
+    <title>Startup Write Post</title>
 </head>
 <body>
     <div class="container">
@@ -26,7 +26,7 @@ $user_id = $_SESSION["id"];
         <p> Aqui você pode escrever uma atualização sobre um projeto recentemente desenvolvido, publicar alguma pesquisa e etc. Ao finalizar, o que você escrever será adicionado a área de publicações na sua página para outras pessoas poderem vizualizar!</p>
         
         <!-- Formulário para enviar o id para a página de confirmação de exclusão -->
-        <form action="write-post-request.php" method="post">
+        <form action="../../controllers/startup/write-post-request.php" method="post">
             <div>
                 <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($user_id); ?>">
             </div>
@@ -52,7 +52,7 @@ $user_id = $_SESSION["id"];
         </form>
 
         <div class="form-group form-btn">
-            <a href="indexStartup.php" class="btn btn-secondary mt-3"> Voltar para perfil</a>
+            <a href="index.php" class="btn btn-secondary mt-3"> Voltar para perfil</a>
         </div>
         
         

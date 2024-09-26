@@ -5,7 +5,7 @@
         exit();
     }
 
-    require_once 'database.php';
+    require_once '../../database/database.php';
 
     $sql = "SELECT * FROM post";
     $all_posts = $conn->query($sql);
@@ -18,7 +18,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="design/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Home</title>
+    <title>Investor Startup Datails Post</title>
 </head>
 <body>
     <h1 class="title-home">Home</h1>
@@ -48,7 +48,7 @@
 
                 <?php 
                         $post_id = $row['id'];
-                        $url = "post.php?id=" . urlencode($post_id);
+                        $url = "details-post-startup.php?id=" . urlencode($post_id);
                         echo "<a href='$url' class='btn btn-primary'>Ver mais</a>";
                 ?>
             </div>
