@@ -2,7 +2,6 @@
 // Conectar ao banco de dados (ajuste conforme necessário)
 include("../../database/database.php");
 
-// Recuperar o CNPJ da URL
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     
@@ -59,12 +58,14 @@ if (isset($_GET['id'])) {
             <h4> Startup: <?php echo $startupName; ?> </h4>
             <h4> Categoria: <?php echo $category; ?> </h4>
             <p> <?php echo $body; ?></p>
-
-            
-            
+       
             <a href="index.php" class="btn btn-secondary mt-3">Voltar para perfil </a>
             <a href="index.php" class="btn btn-warning mt-3">Editar Post </a>
-            <a href="index.php" class="btn btn-danger mt-3">Excluir Post </a>
+
+            <form action="delete-post.php" method="post">
+                <input type="hidden" name="post_id" value="<?php echo htmlspecialchars($id); ?>">
+                <button type="submit" name="delete-button" class="btn btn-danger">Excluir post</button>
+            </form>
     </div>
 
         

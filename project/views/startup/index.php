@@ -52,6 +52,8 @@ $email_startup = $_SESSION["emailStartup"];
             <button type="submit" name="delete-button" class="btn btn-danger">Excluir conta</button>
         </form>
 
+        
+
         <form action="write-post.php" method="post">
             <input type="hidden" name="user_id"  value="<?php echo htmlspecialchars($user_id); ?>">
             <button type="submit" name="write-post" class="btn btn-primary"> Escrever um Post  </button>
@@ -63,6 +65,14 @@ $email_startup = $_SESSION["emailStartup"];
                 echo "<div class='alert alert-success'> Post publicado com sucesso </div>";
             }
         }
+        ?>
+
+        <?php
+            if (isset($_GET["postDelete"])) {
+                if($_GET["postDelete"] == "deletado") {
+                    echo "<div class='alert alert-success'> Post deletado com sucesso </div>";
+                }
+            }
         ?>
 
         <section class="post-section">
