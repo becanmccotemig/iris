@@ -40,7 +40,7 @@ $user_id = $_SESSION["id"];
                 <input type="text" class="form-control" name="post-author" placeholder="Autor">
             </div>
             <div class="form-group">
-                <textarea class="form-control" name="post-description" placeholder="Uma breve descrição do seu post"placeholder="Uma breve descrição do seu post" id=""></textarea>
+                <textarea class="form-control" name="post-description" placeholder="Uma breve descrição do seu post" id=""></textarea>
                 
             </div>
             <div class="form-group">
