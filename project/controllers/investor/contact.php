@@ -9,21 +9,12 @@ $mail = new PHPMailer();
 
 
 $mail->isSMTP();
-
-
 $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-
 $mail->Host = 'smtp.gmail.com';
-
 $mail->Port = 587; // ou 587
-
 $mail->SMTPSecure = 'tls';
-
-
 $mail->SMTPAuth = true;
-
 $mail->Username = 'sofia.fernandesfs4@gmail.com';
-
 $mail->Password = 'ovjl zihd halz bbyc';
 
 if (isset($_POST["send-email"])) {

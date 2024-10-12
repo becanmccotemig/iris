@@ -1,8 +1,6 @@
 <?php
-// Conectar ao banco de dados (ajuste conforme necessário)
 include("../../database/database.php");
 
-// Recuperar o CNPJ da URL
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     
@@ -70,8 +68,46 @@ if (isset($_GET['id'])) {
                 <p> Site: <?php echo $website; ?></p>
                 <p> Email de contato: <?php echo $emailStartup; ?></p>
                 <p> Número de contato: <?php echo $contato; ?></p>
-            <a href="home.php" class="btn btn-secondary mt-3">Voltar</a>
+            
     </div>
 
+    <div class="container">
+        <h1 class="form-group"> Se interessou por essa startup? Entre em contato com ela! </h1>
+        <form action="../../controllers/investor/contact-startup.php" method="post">
+            <input type="hidden" name="startup-id" value="<?php echo $id; ?>">
+            <div class="form-group">
+                <label for="nome"> Nome </label>
+                <input type="text" placeholder="Seu nome..." name="nome" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="email"> Email </label>
+                <input type="email" placeholder="Seu email..." name="email" class="form-control">
+            </div>
+            <div class="form-btn form-group">
+                <label for="assunto"> Assunto </label>
+                <input type="text" placeholder="Assunto" name="assunto" class="form-control">
+            </div>
+            <div class="form-btn form-group">
+                <label for="mensagem"> Mensagem </label>
+                <textarea name="mensagem" class="form-control" placeholder="Corpo do seu email"></textarea>
+            </div>
+
+            <div class="form-btn form-group">
+                <button type="submit" name="send-email" class="btn btn-primary"> Enviar email! </button>
+            </div>
+                    
+        </form>
+
+    </div>
+
+
+    
+
+    <div class="container">
+    <a href="home.php" class="btn btn-secondary mt-3">Voltar</a>
+
+    </div>
+   
+        
 </body>
 </html>

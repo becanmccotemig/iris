@@ -37,5 +37,14 @@ $full_name = $_SESSION["full_name"];
             <button type="submit" name="delete-button" class="btn btn-danger">Excluir conta</button>
         </form>
     </div>
+
+    <?php
+        if (isset($_GET["email"])) {
+            if($_GET["email"] == "emailenviado") {
+                echo "<div class='alert alert-success'> Email de contato enviado </div>";
+            }
+        }
+
+    ?>
 </body>
 </html>

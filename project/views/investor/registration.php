@@ -39,8 +39,7 @@ if (isset($_SESSION["user"])) {
            if ($password!==$passwordRepeat) {
             array_push($errors,"Senha incorreta");
            }
-           
-           require_once "database.php";
+           require_once "../../database/database.php";
            $sql = "SELECT * FROM users WHERE email = '$email'";
            $result = mysqli_query($conn, $sql);
            $rowCount = mysqli_num_rows($result);

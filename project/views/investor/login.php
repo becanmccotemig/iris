@@ -70,12 +70,6 @@
                     echo "<div class='alert alert-success'> Conta deletada com sucesso, faça login em outra conta ou crie uma nova! </div>";
                 }
             }
-
-            if (isset($_GET["email"])) {
-                if($_GET["email"] == "emailenviado") {
-                    echo "<div class='alert alert-success'> Email de contato enviado </div>";
-                }
-            }
         ?>
             <p> <a href="reset-password.php"> Esqueceu a senha? </a> </p>
         </div>

@@ -2,7 +2,7 @@
 
 $hostName = "localhost";
 $dbUser = "root";
-$dbPassword = "";
+$dbPassword = "senha";
 $dbName = "iris";
 
 $conn = mysqli_connect($hostName, $dbUser, $dbPassword, $dbName);
