@@ -11,50 +11,17 @@
 </head>
 <body>
     <div class="container">
-
-        <?php
-        if (isset($_POST["login"])) {
-           $email = $_POST["email"];
-           $password = $_POST["password"];
-            require_once "../../database/database.php";
-            $sql = "SELECT * FROM startups WHERE emailStartup = '$email'";
-            $result = mysqli_query($conn, $sql);
-            $startup_user = mysqli_fetch_array($result, MYSQLI_ASSOC);
-            if ($startup_user) {
-                if (password_verify($password, $startup_user["password"])) {
-                    session_start();
-                    $_SESSION['id'] = $startup_user['id']; // Armazena o ID do usuário na sessão
-                    $_SESSION['nomeStartup'] = $startup_user['nomeStartup']; 
-                    $_SESSION['descricao'] = $startup_user['descricao'];
-                    $_SESSION['fundador'] = $startup_user['fundador'];
-                    $_SESSION['setor'] = $startup_user['setor'];
-                    $_SESSION['endereco'] = $startup_user['endereco'];
-                    $_SESSION['contato'] = $startup_user['contato'];
-                    $_SESSION['website'] = $startup_user['website'];
-                    $_SESSION['emailStartup'] = $startup_user['emailStartup'];
-                    header("Location: index.php");
-                    die();
-                } else {
-                    echo "<div class='alert alert-danger'> Senha incorreta </div>";
-                }
-            } else {
-                echo "<div class='alert alert-danger'> Email incorreto ou inválido </div>";
-            }
-            
-        }
-        ?>
-
         <h1 class="form-group"> Login Startup </h1>
-        <form action="login.php" method="post">
+        <form action="../../controllers/startup/login.php" method="post">
             <div class="form-group">
                 <input type="email" placeholder="Email" name="email" class="form-control">
             </div>
             <div class="form-group">
                 <input type="password" placeholder="Senha " name="password" class="form-control">
             </div>
-            <div class="form-btn form-group">
-                <input type="submit" value="Logar" name="login" class="btn btn-primary">
-            </div>
+            <div class="form-group form-btn">
+                <button type="submit" name="login" class="btn btn-primary"> Logar </button>
+            </div> 
         </form>
         <div>
             <p> Não possui conta? <a href="registration.php"> Criar conta </a></p>
@@ -64,13 +31,11 @@
         </div>
         <div>
         <?php
-
-            if (isset($_GET["newpwd"])) {
-                if($_GET["newpwd"] == "passwordupdated") {
-                    echo "<div class='alert alert-success'> Sua senha foi redefinida com sucesso!</div>";
+            if (isset($_GET["update"])) {
+                if($_GET["update"] == "updated") {
+                    echo "<div class='alert alert-success'> Você fez alterações em sua conta, e para sua segurança, faça login novamente! </div>";
                 }
             }
-
             if (isset($_GET["delete"])) {
                 if($_GET["delete"] == "deletado") {
                     echo "<div class='alert alert-success'> Conta deletada com sucesso, faça login em outra conta ou crie uma nova! </div>";
@@ -80,6 +45,22 @@
             if (isset($_GET["email"])) {
                 if($_GET["email"] == "emailenviado") {
                     echo "<div class='alert alert-success'> Email de contato enviado </div>";
+                } else if($_GET["email"] == "invalid") {
+                    echo "<div class='alert alert-danger'> Email invalido ou não cadastrado! </div>";
+                }
+            }
+
+            if (isset($_GET["password"])) {
+                if($_GET["password"] == "incorrect") {
+                    echo "<div class='alert alert-danger'> Senha incorreta, tente novamente! </div>";
+                } else if($_GET["password"] == "updated") {
+                    echo "<div class='alert alert-success'> Você fez alterações na sua senha, e para sua segurança, faça login novamente! </div>";
+                }
+            }
+
+            if (isset($_GET["session"])) {
+                if($_GET["session"] == "error") {
+                    echo "<div class='alert alert-danger'> Faça login para executar essa ação! </div>";
                 }
             }
         ?>

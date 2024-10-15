@@ -1,24 +1,14 @@
 <?php
 session_start();
-include("../../database/database.php");
-
+include "../../model/startup.php";
+include "../../database/database.php"; 
 if (isset($_SESSION["user"])) {
     header("Location: login.php");
     exit();
 }
 
 $emailStartup = $_SESSION["emailStartup"];
-$sql = "SELECT * FROM startups WHERE emailStartup = ?";
-$stmt = mysqli_stmt_init($conn);
-
-if (!mysqli_stmt_prepare($stmt, $sql)) {
-    echo "SQL statement failed";
-} else {
-    mysqli_stmt_bind_param($stmt, "s", $emailStartup);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
-    $startup = mysqli_fetch_assoc($result);
-}
+$startup = getInfo($conn, $emailStartup);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,10 +23,13 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
 <body>
     <div class="container">
         <h1 class="form-group">Editar Startup</h1>
-        <form action="../../controllers/startup/edit-process.php" method="post" enctype="multipart/form-data">
+        <form action="../../controllers/startup/edit.php" method="post" enctype="multipart/form-data">
             <label>Edite as informações da sua Startup</label>
             <div class="form-group">
                 <input type="text" class="form-control" name="startupName" placeholder="Nome" value="<?php echo htmlspecialchars($startup['nomeStartup']); ?>">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="newEmail" placeholder="Email" value="<?php echo htmlspecialchars($startup['emailStartup']); ?>">
             </div>
             <div class="form-btn form-group">
                 <textarea name="descricao" class="form-control" placeholder="Use este campo para fazer uma descrição de sua Startup!"><?php echo htmlspecialchars($startup['descricao']); ?></textarea>
@@ -59,11 +52,26 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
             <div class="form-group">
                 <input type="file" class="form-control" name="imagem" placeholder="Logo da sua Startup">
             </div>
-            <div class="form-btn form-group">
-                <input type="submit" class="btn btn-primary" value="Atualizar" name="submitEditStartup">
-            </div>
+            <div class="form-group form-btn">
+                <button type="submit" name="update" class="btn btn-primary"> Atualizar informações </button>
+            </div> 
             <p> Deseja redefinir sua senha? <a href="../password.php"> Redefinir senha </a></p>
         </form>
+
+        <?php
+
+            if (isset($_GET["update"])) {
+                if($_GET["update"] == "notUpdated") {
+                    echo "<div class='alert alert-danger'> Não foi possível fazer a atualização de sua informações, tente novamente! </div>";
+                }
+            }
+
+            if (isset($_GET["fields"])) {
+                if($_GET["fields"] == "empty") {
+                    echo "<div class='alert alert-danger'>Todos os campos devem ser preenchidos </div>";
+                }
+            }
+        ?>
     </div>
 </body>
 </html>

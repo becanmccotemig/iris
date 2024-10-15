@@ -14,7 +14,7 @@
 
         <h1 class="form-group"> Redefinir Senha </h1>
 
-        <form action="../../controllers/investor/password.php" method="post">
+        <form action="../../controllers/startup/password.php" method="post">
             <div class="form-group">
                 <input type="email" placeholder="Email" name="email" class="form-control">
             </div>

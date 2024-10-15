@@ -36,7 +36,17 @@
             </div>
                     
         </form>
+
+        <?php
+        if (isset($_GET["email"])) {
+            if($_GET["email"] == "enviado") {
+                echo "<div class='alert alert-success'> Seu email foi enviado com sucesso para nossa equipe! </div>";
+            }
+        }
+        ?>
         
     </div>
+
+   
 </body>
 </html>

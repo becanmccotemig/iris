@@ -1,31 +1,25 @@
 <?php
 session_start();
-require_once "../../database/database.php";
+include "../../model/investor.php";
+include "../../database/database.php"; 
 
-if (!isset($_SESSION["user"])) {
-    header("Location: login.php");
-    exit();
-}
-
-$email = $_SESSION["user"];
-
-$sql = "SELECT * FROM users WHERE email = ?";
-$stmt = mysqli_stmt_init($conn);
-
-if (!mysqli_stmt_prepare($stmt, $sql)) {
-    echo "SQL statement failed";
-} else {
-    mysqli_stmt_bind_param($stmt, "s", $email);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
-    $user = mysqli_fetch_assoc($result);
-
-    if (!$user) {
+if(isset($_POST['edit-info'])) {
+    $id = $_POST['user_id'];
+    $userInfo = getInfo($conn, $id);
+    if($userInfo) {
+        $fullName = $userInfo['full_name'];
+        $email = $userInfo['email'];
+    } else {
         echo "<div class='alert alert-danger'>Usuário não encontrado.</div>";
-        exit();
+        exit;
     }
+} else {
+    header("Location: index.php");
+    exit;
 }
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,14 +33,18 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
 <body>
     <div class="container">
         <h1 class="form-group">Editar Investidor</h1>
-        <form action="../../controllers/investor/edit-process.php" method="post" enctype="multipart/form-data">
+        <form action="../../controllers/investor/edit.php" method="post" enctype="multipart/form-data">
             <label>Edite as informações da sua Conta</label>
+            <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($id); ?>">
             <div class="form-group">
-                <input type="text" class="form-control" name="Name" placeholder="Nome" value="<?php echo htmlspecialchars($user['full_name']); ?>">
+                <input type="text" class="form-control" name="Name" placeholder="Nome" value="<?php echo isset($fullName) ? htmlspecialchars($fullName) : ''; ?>">
             </div>
-            <div class="form-btn form-group">
-                <input type="submit" class="btn btn-primary" value="Atualizar" name="submitEditInfo">
+            <div class="form-group">
+                <input type="text" class="form-control" name="Email" placeholder="Email" value="<?php echo isset($email) ? htmlspecialchars($email) : ''; ?>">
             </div>
+            <div class="form-group form-btn">
+                <button type="submit" name="update" class="btn btn-primary"> Atualizar informações </button>
+            </div> 
             <p> Deseja redefinir sua senha? <a href="edit-password.php"> Redefinir senha </a></p>
         </form>
     </div>

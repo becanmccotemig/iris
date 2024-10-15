@@ -1,3 +1,8 @@
+<?php
+include "../../model/investor.php";
+include "../../database/database.php";
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,44 +16,17 @@
 </head>
 <body>
     <div class="container">
-
-        <?php
-        if (isset($_POST["login"])) {
-           $email = $_POST["email"];
-           $password = $_POST["password"];
-            require_once "../../database/database.php";
-            $sql = "SELECT * FROM users WHERE email = '$email'";
-            $result = mysqli_query($conn, $sql);
-            $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
-            if ($user) {
-                if (password_verify($password, $user["password"])) {
-                    session_start();
-                    $_SESSION['id'] = $user['id']; // Armazena o ID do usuário na sessão
-                    $_SESSION['user'] = $user['email']; // Armazena o email do usuário na sessão
-                    $_SESSION['full_name'] = $user['full_name']; // Armazena o nome completo do usuário na sessão
-                    header("Location: index.php");
-                    die();
-                } else {
-                    echo "<div class='alert alert-danger'> Senha incorreta </div>";
-                }
-            } else {
-                echo "<div class='alert alert-danger'> Email incorreto ou inválido </div>";
-            }
-            
-        }
-        ?>
-
         <h1 class="form-group"> Login Investidor </h1>
-        <form action="login.php" method="post">
+        <form action="../../controllers/investor/login.php" method="post">
             <div class="form-group">
                 <input type="email" placeholder="Email" name="email" class="form-control">
             </div>
             <div class="form-group">
                 <input type="password" placeholder="Senha " name="password" class="form-control">
             </div>
-            <div class="form-btn form-group">
-                <input type="submit" value="Logar" name="login" class="btn btn-primary">
-            </div>
+            <div class="form-group form-btn">
+                <button type="submit" name="login" class="btn btn-primary"> Logar </button>
+            </div> 
         </form>
         <div>
             <p> Não possui conta? <a href="registration.php"> Criar conta </a></p>
@@ -59,15 +37,33 @@
         <div>
         <?php
 
-            if (isset($_GET["newpwd"])) {
-                if($_GET["newpwd"] == "passwordupdated") {
-                    echo "<div class='alert alert-success'> Sua senha foi redefinida com sucesso!</div>";
+            if (isset($_GET["email"])) {
+                if($_GET["email"] == "enviado") {
+                    echo "<div class='alert alert-success'> Seu email foi enviado com sucesso para nossa equipe! </div>";
                 }
             }
 
             if (isset($_GET["delete"])) {
                 if($_GET["delete"] == "deletado") {
                     echo "<div class='alert alert-success'> Conta deletada com sucesso, faça login em outra conta ou crie uma nova! </div>";
+                }
+            }
+
+            if (isset($_GET["cadastro"])) {
+                if($_GET["cadastro"] == "cadastrado") {
+                    echo "<div class='alert alert-success'> Registro feito com sucesso, agora você poderá realizar login! </div>";
+                }
+            }
+
+            if (isset($_GET["update"])) {
+                if($_GET["update"] == "updated") {
+                    echo "<div class='alert alert-success'> Você fez alterações em sua conta, e para sua segurança, faça login novamente! </div>";
+                }
+            }
+
+            if (isset($_GET["password"])) {
+                if($_GET["password"] == "updated") {
+                    echo "<div class='alert alert-success'> Você fez alterações na sua senha, e para sua segurança, faça login novamente! </div>";
                 }
             }
         ?>

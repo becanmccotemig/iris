@@ -17,7 +17,7 @@ if (isset($_SESSION["user"])) {
 <body>
     <div class="container">
         <h1 class="form-group"> Cadastrar Startup </h1>
-        <form action="../../controllers/startup/registration-process.php" method="post" enctype="multipart/form-data">
+        <form action="../../controllers/startup/registration.php" method="post" enctype="multipart/form-data">
             <label> Primeiramente, insira as informações técnicas de sua startup </label>
             <div class="form-group">
                 <input type="text" class="form-control" name="startupName" placeholder="Nome">
@@ -53,9 +53,10 @@ if (isset($_SESSION["user"])) {
             <div class="form-group">
                 <input type="password" class="form-control" name="repeat_password" placeholder="Repetir senha">
             </div>
-            <div class="form-btn form-group">
-                <input type="submit" class="btn btn-primary" value="Register" name="submitStartup">
-            </div>
+
+            <div class="form-group form-btn">
+                <button type="submit" name="register" class="btn btn-primary"> Cadastrar </button>
+            </div> 
         </form>
         <div>
         <div>
@@ -65,6 +66,41 @@ if (isset($_SESSION["user"])) {
             <p> Deseja criar conta INVESTIDOR? <a href="../../views/investor/registration.php"> Criar </a></p>
         </div>
       </div>
+
+        <?php
+
+            if (isset($_GET["fields"])) {
+                if($_GET["fields"] == "empty") {
+                    echo "<div class='alert alert-danger'> Todos os campos devem ser preenchidos! </div>";
+                }
+            }
+
+            if (isset($_GET["email"])) {
+                if($_GET["email"] == "invalid") {
+                    echo "<div class='alert alert-danger'> Email inválido! </div>";
+                } else if($_GET["email"] == "error") {
+                    echo "<div class='alert alert-danger'> Email já cadastrado! </div>";
+                }
+            } 
+            
+            if (isset($_GET["password"])) {
+                if($_GET["password"] == "invalid") {
+                    echo "<div class='alert alert-danger'> Senha deve conter no mínimo 8 caracteres </div>";
+                } else if($_GET["password"] == "different") {
+                    echo "<div class='alert alert-danger'> As senhas não conferem! </div>";
+                }
+            } 
+
+            if (isset($_GET["register"])) {
+                if($_GET["register"] == "success") {
+                    echo "<div class='alert alert-success'> Registro feito com sucesso, agora você poderá realizar login! </div>";
+                } else if($_GET["register"] == "error") {
+                    echo "<div class='alert alert-danger'> Houve um erro no seu cadastro, tente novamente! </div>";
+                }
+            }
+
+
+        ?>
 
       
     </div>

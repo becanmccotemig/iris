@@ -24,9 +24,8 @@ $post_id = $_POST["post_id"];
     <div class="container">
         <h1>Deletar post</h1>
         <p>Ao clicar no botão abaixo, você entende que o post que você selecionou será deletado!</p>
-        
-        <!-- Formulário para enviar o id para a página de confirmação de exclusão -->
-        <form action="../../controllers/startup/delete-post-request.php" method="post">
+
+        <form action="../../controllers/startup/delete-post.php" method="post">
             <input type="hidden" name="post_id" value="<?php echo htmlspecialchars($post_id); ?>">
             <button type="submit" name="delete-button" class="btn btn-danger">Excluir post</button>
         </form>

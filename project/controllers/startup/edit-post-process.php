@@ -19,7 +19,7 @@
         }
 
         if (isset($_POST["submitEditPost"])) {
-            $id = mysqli_real_escape_string($conn, $_POST["user_id"]);
+            $id = mysqli_real_escape_string($conn, $_POST["post_id"]);
             $titulo = mysqli_real_escape_string($conn, $_POST["post-title"]);
             $categoria = mysqli_real_escape_string($conn, $_POST["post-category"]);
             $autor = mysqli_real_escape_string($conn, $_POST["post-author"]);

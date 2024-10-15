@@ -26,7 +26,7 @@ $user_id = $_SESSION["id"];
         <p>Ao clicar no botão abaixo, você entende que sua conta, junto com os seus dados serão deletados!</p>
         
         <!-- Formulário para enviar o id para a página de confirmação de exclusão -->
-        <form action="../../controllers/startup/delete-account-request.php" method="post">
+        <form action="../../controllers/startup/delete-account.php" method="post">
             <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($user_id); ?>">
             <button type="submit" name="delete-button" class="btn btn-danger">Excluir conta</button>
         </form>

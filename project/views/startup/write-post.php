@@ -26,7 +26,7 @@ $user_id = $_SESSION["id"];
         <p> Aqui você pode escrever uma atualização sobre um projeto recentemente desenvolvido, publicar alguma pesquisa e etc. Ao finalizar, o que você escrever será adicionado a área de publicações na sua página para outras pessoas poderem vizualizar!</p>
         
         <!-- Formulário para enviar o id para a página de confirmação de exclusão -->
-        <form action="../../controllers/startup/write-post-request.php" method="post">
+        <form action="../../controllers/startup/write-post.php" method="post">
             <div>
                 <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($user_id); ?>">
             </div>
@@ -55,6 +55,20 @@ $user_id = $_SESSION["id"];
             <a href="index.php" class="btn btn-secondary mt-3"> Voltar para perfil</a>
         </div>
         
+        <?php
+            if (isset($_GET["post"])) {
+                if($_GET["post"] == "error") {
+                    echo "<div class='alert alert-danger'> Ocorreu um erro ao publicar post, tente novamente! </div>";
+                } 
+            }
+
+            if (isset($_GET["fields"])) {
+                if($_GET["fields"] == "empty") {
+                    echo "<div class='alert alert-danger'> Todos os campos devem ser preenchidos! </div>";
+                } 
+            }
+        ?>
+
         
     </div>
 </body>

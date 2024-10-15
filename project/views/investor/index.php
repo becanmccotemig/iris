@@ -29,9 +29,20 @@ $full_name = $_SESSION["full_name"];
     <div class="container">
         <h1>Bem-vindo, <?php echo $full_name; ?></h1>
         <p>Seu email: <?php echo $email; ?></p>
-        <p> Deseja redefinir sua senha? <a href="password.php"> Redefinir senha </a></p>
+        <!-- Editar Senha -->
+        <form action="../../views/investor/edit-password.php" method="post">
+            <label for="edit-password"> Deseja redefinir sua senha? </label>
+            <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($user_id); ?>">
+            <button type="submit" name="edit-password" class="btn btn-warning">Editar senha</button>
+        </form>
+        <!-- Editar informações -->
+        <form action="../../views/investor/edit.php" method="post">
+            <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($user_id); ?>">
+            <button type="submit" name="edit-info" class="btn btn-warning">Editar informações</button>
+        </form>
+        <!-- Deslogar -->
         <a href="../../controllers/investor/logout.php" class="btn btn-warning">Deslogar</a>
-        <a href="edit.php" class="btn btn-warning">Editar Informações</a>
+        <!-- Excluir conta -->
         <form action="delete-account.php" method="post">
             <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($user_id); ?>">
             <button type="submit" name="delete-button" class="btn btn-danger">Excluir conta</button>

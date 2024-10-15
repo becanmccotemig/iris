@@ -1,28 +1,26 @@
 <?php
-include("../../database/database.php");
+include "../../model/investor.php";
+include "../../database/database.php"; 
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    
-    $query = "SELECT * FROM startups WHERE id = $id";
-    $result = mysqli_query($conn, $query);
-    $post = mysqli_fetch_assoc($result);
 
-    $startup_id = $post['id'];
-    $nomeStartup = $post['nomeStartup'];
-    $descricao = $post['descricao'];
-    $fundador = $post['fundador'];
-    $setor = $post['setor'];
-    $endereco = $post['endereco'];
-    $contato = $post['contato'];
-    $website = $post['website'];
-    $emailStartup = $post['emailStartup'];
+    $startupDetails = detailsStartup($conn, $id);
 
-    $query = "SELECT nomeStartup FROM startups WHERE id = $startup_id";
-    $result = mysqli_query($conn, $query);
-    $startup = mysqli_fetch_assoc($result);
-    $startupName = $startup['nomeStartup'];
-
+    if ($startupDetails) {
+        $startup_id = $startupDetails['id'];
+        $nomeStartup = $startupDetails['nomeStartup'];
+        $descricao = $startupDetails['descricao'];
+        $fundador = $startupDetails['fundador'];
+        $setor = $startupDetails['setor'];
+        $endereco = $startupDetails['endereco'];
+        $contato = $startupDetails['contato'];
+        $website = $startupDetails['website'];
+        $emailStartup = $startupDetails['emailStartup'];
+    } else {
+        echo "<p>Erro: Post não encontrado.</p>";
+        exit;
+    }
 } else {
     // Caso não haja um CNPJ na URL
     echo "<p>Erro: Nenhum ID foi fornecido.</p>";
@@ -57,17 +55,17 @@ if (isset($_GET['id'])) {
     <div class="container">
             <div class="title">
 
-                <h1> <?php echo $startupName; ?> </h1>
+                <h1> <?php echo $nomeStartup; ?> </h1>
                 <h3> <?php echo $setor; ?> </h3>
 
             </div>
 
             <p> <?php echo $descricao; ?> </p>
-                <p> Endereco: <?php echo $endereco; ?> </p>
-                <p> Fundador(es): <?php echo $fundador; ?> </p>
-                <p> Site: <?php echo $website; ?></p>
-                <p> Email de contato: <?php echo $emailStartup; ?></p>
-                <p> Número de contato: <?php echo $contato; ?></p>
+            <p> Endereco: <?php echo $endereco; ?> </p>
+            <p> Fundador(es): <?php echo $fundador; ?> </p>
+            <p> Site: <?php echo $website; ?></p>
+            <p> Email de contato: <?php echo $emailStartup; ?></p>
+            <p> Número de contato: <?php echo $contato; ?></p>
             
     </div>
 
@@ -98,16 +96,22 @@ if (isset($_GET['id'])) {
                     
         </form>
 
+        <?php
+
+            if (isset($_GET["email"])) {
+                if($_GET["email"] == "error") {
+                    echo "<div class='alert alert-success'> Houve um erro no envio do seu email! </div>";
+                } else if($_GET["email"] == "enviado") {
+                    echo "<div class='alert alert-success'> Email enviado com sucesso! </div>";
+                }
+            } 
+
+        ?>
+
     </div>
-
-
-    
 
     <div class="container">
-    <a href="home.php" class="btn btn-secondary mt-3">Voltar</a>
-
+        <a href="home.php" class="btn btn-secondary mt-3">Voltar</a>
     </div>
-   
-        
 </body>
 </html>

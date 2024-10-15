@@ -47,6 +47,14 @@ $email_startup = $_SESSION["emailStartup"];
         <p>Email: <?php echo $email_startup; ?></p>
         <div><a href="../../controllers/startup/logout.php" class="btn btn-warning">Deslogar</a></div>
         <div><a href="edit.php" class="btn btn-warning">Editar Info</a></div>
+
+        <form action="../../views/startup/edit-password.php" method="post">
+            <label for="edit-password"> Deseja redefinir sua senha? </label>
+            <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($user_id); ?>">
+            <button type="submit" name="edit-password" class="btn btn-warning">Editar senha</button>
+        </form>
+
+        
         <form action="delete-account.php" method="post">
             <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($user_id); ?>">
             <button type="submit" name="delete-button" class="btn btn-danger">Excluir conta</button>
@@ -68,12 +76,32 @@ $email_startup = $_SESSION["emailStartup"];
         ?>
 
         <?php
-            if (isset($_GET["postDelete"])) {
-                if($_GET["postDelete"] == "deletado") {
-                    echo "<div class='alert alert-success'> Post deletado com sucesso </div>";
+            if (isset($_GET["post"])) {
+                if($_GET["post"] == "updated") {
+                    echo "<div class='alert alert-success'> Post editado com sucesso </div>";
                 }
             }
         ?>
+
+        <?php
+            if (isset($_GET["postDelete"])) {
+                if($_GET["postDelete"] == "deletado") {
+                    echo "<div class='alert alert-success'> Post deletado com sucesso </div>";
+                } else if($_GET["postDelete"] == "error") {
+                    echo "<div class='alert alert-danger'> Erro ao deletar o post, tente novamente! </div>";
+                }
+            }
+        ?>
+
+        <?php
+            if (isset($_GET["delete"])) {
+                if($_GET["delete"] == "error") {
+                    echo "<div class='alert alert-danger'> Ocorreu um erro ao deletar sua conta, tente novamente! </div>";
+                } 
+            }
+        ?>
+
+        
 
         <section class="post-section">
             <h1> Seus posts! </h1>
