@@ -26,6 +26,9 @@ $full_name = $_SESSION["full_name"];
 <body>
 
 
+<?php 
+    include_once '../../components/header/investor/header.php';
+?>
     <div class="container">
         <h1>Bem-vindo, <?php echo $full_name; ?></h1>
         <p>Seu email: <?php echo $email; ?></p>

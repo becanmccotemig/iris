@@ -20,6 +20,10 @@
     <title>Investor Home Page</title>
 </head>
 <body>
+
+<?php 
+    include_once '../../components/header/investor/header.php';
+?>
 <h1 class="title-home">Home</h1>
 <section class="section">
 
