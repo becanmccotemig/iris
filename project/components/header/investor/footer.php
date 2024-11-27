@@ -1,6 +1,8 @@
 <footer class="footer">
     <div class="footer-logo">
-        <div> <img src=""></div>
+        <div> 
+            <object type="image/svg+xml" data="../icons/logo.svg"></object>
+        </div>
     </div>
     <div class="footer-contato">
         <h1 class="footer-title">Contato</h1>
