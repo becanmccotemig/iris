@@ -47,7 +47,7 @@ if (isset($_POST['edit-info'])) {
     include_once '../../components/header/investor/header.php';
     ?>
     <div class="container main-content">
-        <h1 class="form-group">Editar Investidor</h1>
+        <h1 class="title">Editar Investidor</h1>
         <form class="form-group" action="../../controllers/investor/edit.php" method="post"
             enctype="multipart/form-data">
             <label>Edite as informações da sua Conta</label>

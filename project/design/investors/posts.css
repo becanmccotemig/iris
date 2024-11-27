@@ -94,3 +94,77 @@
 .card-container a:hover {
     background-color: #020630;
 }
+
+/*RESPONSIVIDADE*/
+
+/* Desktop (Largura acima de 1024px) */
+@media (min-width: 1024px) {
+    .card {
+        width: 50vw;
+        margin: 20px;
+    }
+
+    .title-home {
+        font-size: 3.5em;
+    }
+
+    .card-post-header h2 {
+        font-size: 2em;
+    }
+
+    .card-post-header h4 {
+        font-size: 1.4em;
+    }
+
+    .card-post-container p {
+        font-size: 1.1em;
+    }
+
+    .card-post-footer {
+        font-size: 1em;
+    }
+
+    .card-container a {
+        font-size: 1.1em;
+        padding: 12px 25px;
+    }
+}
+
+/* Celular (Largura abaixo de 768px)*/
+@media (max-width: 768px) {
+    .title-home {
+        font-size: 2.5em;
+    }
+
+    .section {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        width: 90vw;
+        margin: 10px 0;
+    }
+
+    .card-post-header h2 {
+        font-size: 1.6em;
+    }
+
+    .card-post-header h4 {
+        font-size: 1.1em;
+    }
+
+    .card-post-container p {
+        font-size: 1em;
+    }
+
+    .card-post-footer {
+        font-size: 0.8em;
+    }
+
+    .card-container a {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+}

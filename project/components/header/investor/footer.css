@@ -15,8 +15,7 @@
     width: 50%;
 }
 
-.footer h1 {
-
+.footer-title {
     font-size: 1em;
     text-align: center;
     margin: 0 auto;
@@ -70,4 +69,70 @@
 
 .footer-news button:hover {
     cursor: pointer;
+}
+
+/*RESPONSIVIDADE*/
+
+/* Desktop (Largura acima de 1024px) */
+@media (min-width: 1024px) {
+    .footer {
+        padding: 30px 50px;
+    }
+
+    .footer-title {
+        font-size: 1.2em;
+    }
+
+    .footer-contato li {
+        font-size: 0.9em;
+    }
+
+    .footer-news input {
+        height: 30px;
+        border-radius: 25px;
+    }
+
+    .footer-news button {
+        height: 30px;
+        width: 80px;
+    }
+}
+
+/* Celular (Largura até 768px) */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .footer-logo {
+        width: 100%;
+    }
+
+    .footer-contato,
+    .footer-news {
+        width: 100%;
+    }
+
+    .footer-contato ul {
+        width: 80%;
+    }
+
+    .footer-contato li {
+        font-size: 0.8em;
+    }
+
+    .footer-news input {
+        width: calc(100% - 90px);
+        height: 25px;
+        border-radius: 20px;
+        margin-right: 10px;
+    }
+
+    .footer-news button {
+        width: 80px;
+        height: 30px;
+    }
 }

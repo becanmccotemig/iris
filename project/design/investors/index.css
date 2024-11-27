@@ -94,22 +94,74 @@
 }
 
 /* RESPONSIVIDADE */
+
+/* Desktops (Largura acima de 1024px) */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 900px;
+        padding: 40px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            'title title'
+            'email redefine'
+            'edit delete'
+            'deslog deslog';
+    }
+
+    .title {
+        font-size: 3.5rem;
+    }
+
+    .container p {
+        font-size: 1.2rem;
+    }
+
+    .redefinir,
+    .editar,
+    .deletar {
+        width: 70%;
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 12px 20px;
+    }
+
+    .deslog {
+        font-size: 1rem;
+        padding: 12px 20px;
+    }
+}
+
+/* Celular (Largura abaixo de 768px) */
 @media (max-width: 768px) {
     .container {
         gap: 15px;
     }
 
     .title {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
-    .container button {
+    .container p {
+        font-size: 1rem;
+    }
+
+    .redefinir,
+    .editar,
+    .deletar {
+        width: 80%;
+    }
+
+    .btn {
         font-size: 0.9rem;
         padding: 8px 10px;
+        width: 70%;
     }
 
     .deslog {
         font-size: 0.9rem;
         padding: 8px 10px;
+        width: 100%;
     }
 }

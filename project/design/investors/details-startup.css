@@ -113,12 +113,48 @@
 }
 
 
-
-
 /* RESPONSIVIDADE */
+
+/* Desktop (Largura acima de 1024px) */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 900px;
+        padding: 50px;
+    }
+
+    .title h1 {
+        font-size: 3rem;
+    }
+
+    .title h3 {
+        font-size: 1.5rem;
+    }
+
+    .container p {
+        font-size: 1.2rem;
+    }
+
+    .form-title {
+        font-size: 2.6rem;
+    }
+
+    .form-control {
+        font-size: 1.1rem;
+        padding: 12px;
+    }
+
+    .btn {
+        font-size: 1.2rem;
+        padding: 12px 24px;
+    }
+}
+
+/* Celular (Largura abaixo de 768px) */
 @media (max-width: 768px) {
     .container {
         padding: 20px;
+        min-width: auto;
+        max-width: 90%;
     }
 
     .title h1 {
@@ -129,7 +165,26 @@
         font-size: 1rem;
     }
 
-    .container-form h1 {
+    .container p {
+        font-size: 0.9rem;
+    }
+
+    .form-title {
         font-size: 1.6rem;
     }
+
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .form-control {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
 }
+

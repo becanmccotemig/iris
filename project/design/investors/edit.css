@@ -13,15 +13,11 @@
     justify-content: center;
 }
 
-.container h1 {
+.title {
     text-align: center;
     font-size: 3rem;
     margin-bottom: 20px;
     color: #040950;
-}
-
-.container p {
-    margin-bottom: 15px;
 }
 
 .form-group {
@@ -49,7 +45,6 @@
     box-shadow: 0 0 4px rgba(4, 9, 80, 0.5);
 }
 
-/* Botões */
 .btn {
     display: inline-block;
     padding: 10px 20px;
@@ -87,12 +82,51 @@
 }
 
 /* RESPONSIVIDADE */
-@media (max-width: 768px) {
+
+/* Desktops (Largura acima de 1024px) */
+@media (min-width: 1024px) {
     .container {
-        padding: 20px;
+        max-width: 900px;
+        padding: 30px;
     }
 
-    h1 {
-        font-size: 1.8rem;
+    .title {
+        font-size: 3.5rem;
+    }
+
+    .form-control {
+        font-size: 1.1rem;
+        padding: 12px;
+    }
+
+    .btn {
+        font-size: 1.1rem;
+        padding: 12px 24px;
     }
 }
+/* Celular (Largura abaixo de 768px) */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-control {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}
+

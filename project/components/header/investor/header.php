@@ -1,14 +1,14 @@
 <header class="top-header">
     <ul class="ul-top-header">
-        <li><img src='' alt='logo'></li>
-        <a href="../../views/investor/home.php">
-            <li>Home</li>
+        <li class="li-top-header"><img src='' alt='logo'></li>
+        <a class="a-top-header"href="../../views/investor/home.php">
+            <li class="li-top-header">Home</li>
         </a>
-        <a href="../../views/investor/posts.php">
-            <li>Startup Posts</li>
+        <a class="a-top-header" href="../../views/investor/posts.php">
+            <li class="li-top-header">Startup Posts</li>
         </a>
-        <a href="../../views/investor/index.php">
-            <li>Perfil</li>
+        <a class="a-top-header" href="../../views/investor/index.php">
+            <li class="li-top-header">Perfil</li>
         </a>
     </ul>
 </header>

@@ -77,21 +77,63 @@ textarea.form-control {
     border: 1px solid #c3e6cb;
 }
 
-/* Responsividade */
+/*RESPONSIVIDADE*/
+
+/* Desktop (Largura acima de 1024px) */
+@media (min-width: 1024px) {
+    .container.main-content {
+        max-width: 1100px;
+        padding: 40px;
+        margin-top: 60px;
+    }
+
+    .container.main-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .form-control {
+        font-size: 1.1rem;
+        padding: 12px 18px;
+    }
+
+    .btn {
+        font-size: 1.1rem;
+        padding: 12px 25px;
+    }
+}
+
+/* Celular (Largura até 768px) */
 @media (max-width: 768px) {
     .container.main-content {
         padding: 20px;
+        margin-top: 20px;
+        margin-bottom: 30px;
     }
 
     .container.main-content h1 {
         font-size: 1.8rem;
     }
 
+    .form-container {
+        gap: 15px;
+    }
+
     .form-control {
         font-size: 0.9rem;
+        padding: 10px 12px;
+    }
+
+    textarea.form-control {
+        min-height: 80px;
     }
 
     .btn {
         font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+
+    .alert {
+        font-size: 0.9rem;
+        padding: 10px;
     }
 }

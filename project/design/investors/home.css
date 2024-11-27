@@ -89,3 +89,79 @@
 .card-container a:hover {
     background-color: #020630;
 }
+
+/* RESPONSIVIDADE */
+
+/* Desktops (Largura acima de 1024px) */
+@media (min-width: 1024px) {
+    .title-home {
+        font-size: 3.5em; 
+    }
+
+    .section {
+        gap: 30px; 
+    }
+
+    .card {
+        width: 30vw; 
+        margin-bottom: 40px; 
+    }
+
+    .card-post-header h2 {
+        font-size: 2em;
+    }
+
+    .card-post-header h4 {
+        font-size: 1.2em; 
+    }
+
+    .card-startup-container {
+        font-size: 1em; 
+    }
+
+    .card-startup-footer {
+        font-size: 1em; 
+    }
+
+    .card-container a {
+        font-size: 1.1em; 
+    }
+}
+
+/* Celular (Largura abaixo de 768px) */
+@media (max-width: 768px) {
+    .title-home {
+        font-size: 2em;
+    }
+
+    .section {
+        flex-direction: column; 
+        padding: 10px;
+    }
+
+    .card {
+        width: 80vw;
+        margin-bottom: 20px;
+    }
+
+    .card-post-header h2 {
+        font-size: 1.5em;
+    }
+
+    .card-post-header h4 {
+        font-size: 1em;
+    }
+
+    .card-startup-container {
+        font-size: 0.9em;
+    }
+
+    .card-startup-footer {
+        font-size: 0.8em;
+    }
+
+    .card-container a {
+        font-size: 0.9em;
+    }
+}
+

@@ -114,22 +114,100 @@ html {
 }
 
 /* Responsividade */
-@media (max-width: 768px) {
+
+/* Desktop (Largura acima de 1024px) */
+@media (min-width: 1024px) {
+    body, html {
+        font-family: 'Inter', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #040950;
+    }
+
     .container {
+        width: 50%;
+        padding: 40px;
+        margin-top: 3vh;
+        max-width: 800px;
+    }
+
+    .form-title {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+    }
+
+    .form-container label {
+        font-size: 1rem;
+    }
+
+    .form-control {
+        font-size: 1rem;
+        padding: 12px;
+    }
+
+    .btn {
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    .texts p {
+        font-size: 1rem;
+    }
+
+    .texts a {
+        font-size: 1rem;
+    }
+
+    .alert {
+        font-size: 1rem;
+    }
+}
+/* Celular (Largura abaixo de 768px */
+@media (max-width: 768px) {
+    body, html {
+        padding: 0;
+        font-family: 'Inter', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        background-color: #040950;
+    }
+
+    .container {
+        width: 90%;
         padding: 20px;
+        margin-top: 20px;
     }
 
-    h1 {
-        font-size: 1.5rem;
+    .form-title {
+        font-size: 1.8rem;
     }
 
-    label,
-    p {
+    .form-container label {
         font-size: 0.9rem;
+    }
+
+    .form-control {
+        font-size: 0.9rem;
+        padding: 10px;
     }
 
     .btn {
         padding: 10px;
         font-size: 0.9rem;
+    }
+
+    .texts p {
+        font-size: 0.8rem;
+    }
+
+    .texts a {
+        font-size: 0.9rem;
+    }
+
+    .alert {
+        font-size: 0.8rem;
     }
 }

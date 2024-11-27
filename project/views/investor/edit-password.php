@@ -26,7 +26,7 @@
     ?>
     <div class="container main-content">
 
-        <h1 class="form-group"> Redefinir Senha </h1>
+        <h1 class="title"> Redefinir Senha </h1>
 
         <form action="../../controllers/investor/password.php" method="post">
             <div class="form-group">
