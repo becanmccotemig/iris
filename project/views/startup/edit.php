@@ -73,9 +73,6 @@ $startup = getInfo($conn, $emailStartup);
                 <input type="url" class="form-control" name="link" placeholder="Link do seu website ou portfólio"
                     value="<?php echo htmlspecialchars($startup['website']); ?>">
             </div>
-            <div class="form-group">
-                <input type="file" class="form-control" name="imagem" placeholder="Logo da sua Startup">
-            </div>
             <div class="form-group form-btn">
                 <button type="submit" name="update" class="btn btn-primary"> Atualizar informações </button>
             </div>

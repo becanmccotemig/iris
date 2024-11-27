@@ -51,9 +51,6 @@ if (isset($_SESSION["user"])) {
             <div class="form-group">
                 <input type="url" class="form-control" name="link" placeholder="Link do seu website ou portfolio">
             </div>
-            <div class="form-group">
-                <input type="file" class="form-control" name="imagem" placeholder="Logo da sua Startup">
-            </div>
             <label> Agora, digite as credenciais para cadastrarmos sua Startup! </label>
             <div class="form-group">
                 <input type="email" class="form-control" name="emailStartup" placeholder="Email">
