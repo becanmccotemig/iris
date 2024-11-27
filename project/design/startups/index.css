@@ -1,0 +1,144 @@
+.title,
+.info-title {
+    margin: 0;
+    padding: 10px 0;
+    color: #040950;
+}
+
+.container {
+    min-width: 600px;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.title {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.info-title {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    color: white;
+    background-color: #040950;
+}
+
+.btns {
+    margin: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn:hover {
+    background-color: #020630;
+    transform: scale(1.02);
+}
+
+.btn-danger:hover {
+    background-color: #8f242f;
+    transform: scale(1.02);
+}
+
+.btn-primary {
+    background-color: #464b85;
+}
+
+/* Post Section */
+.post-section {
+    margin-top: 40px;
+}
+
+.post-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.post {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.post h1 {
+    font-size: 1.5rem;
+    color: #040950;
+    margin-bottom: 10px;
+}
+
+.post p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Forms */
+form {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.redefinir,
+.deletar,
+.escrever {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.escrever {
+    width: 100%;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .post-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .post {
+        width: 90%;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .info-title {
+        font-size: 1.3rem;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+    }
+}

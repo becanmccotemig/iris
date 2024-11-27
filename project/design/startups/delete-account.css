@@ -1,0 +1,84 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container h1 {
+    font-size: 2.2rem;
+    color: #040950;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.container p {
+    width: 70%;
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.btn {
+    display: inline-block;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-danger {
+    background-color: #d9534f;
+    color: #ffffff;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c9302c;
+    transform: scale(1.02);
+}
+
+.btn-secondary {
+    background-color: #040950;
+    color: #ffffff;
+    margin-top: 10px;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #020630;
+    transform: scale(1.02);
+}
+
+/* RESPONDIVIDADE */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .container h1 {
+        font-size: 1.8rem;
+    }
+
+    .container p {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}

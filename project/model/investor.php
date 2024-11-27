@@ -6,7 +6,8 @@ use PHPMailer\PHPMailer\SMTP;
 require __DIR__ . '../../vendor/autoload.php';
 
 
-function register($conn, $fullName, $email, $passwordHash) {
+function register($conn, $fullName, $email, $passwordHash)
+{
     $sql = "SELECT * FROM users WHERE email = '$email'";
     $result = mysqli_query($conn, $sql);
     $rowCount = mysqli_num_rows($result);
@@ -16,11 +17,11 @@ function register($conn, $fullName, $email, $passwordHash) {
     } else {
         $sql = "INSERT INTO users (full_name, email, password) VALUES ( ?, ?, ? )";
         $stmt = mysqli_stmt_init($conn);
-        $prepareStmt = mysqli_stmt_prepare($stmt,$sql);
+        $prepareStmt = mysqli_stmt_prepare($stmt, $sql);
 
         if ($prepareStmt) {
-            mysqli_stmt_bind_param($stmt,"sss", $fullName, $email, $passwordHash);
-            if(mysqli_stmt_execute($stmt)) {
+            mysqli_stmt_bind_param($stmt, "sss", $fullName, $email, $passwordHash);
+            if (mysqli_stmt_execute($stmt)) {
                 header("Location: ../../views/investor/login.php?cadastro=cadastrado");
                 exit();
             }
@@ -30,12 +31,13 @@ function register($conn, $fullName, $email, $passwordHash) {
     }
 }
 
-function login($conn, $email, $password) {
+function login($conn, $email, $password)
+{
     $sql = "SELECT * FROM users WHERE email = '$email'";
     $result = mysqli_query($conn, $sql);
     $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
-    if ($user)  {
+    if ($user) {
         if (password_verify($password, $user["password"])) {
             session_start();
             $_SESSION['id'] = $user['id']; // Armazena o ID do usuário na sessão
@@ -51,18 +53,20 @@ function login($conn, $email, $password) {
     }
 }
 
-function deleteAccount($conn, $user_id_to_delete) {
+function deleteAccount($conn, $user_id_to_delete)
+{
     $stmt = $conn->prepare("DELETE FROM users WHERE id = ?");
     $stmt->bind_param("i", $user_id_to_delete);
-    if($stmt->execute()){
+    if ($stmt->execute()) {
         header("Location: ../../views/investor/login.php?delete=deletado");
-        exit(); 
+        exit();
     } else {
         die("Algo deu errado ao preparar a declaração SQL");
     }
 }
 
-function contact($conn, $userEmail, $userMessage, $userSubject, $userName) {
+function contact($conn, $userEmail, $userMessage, $userSubject, $userName)
+{
     $mail = new PHPMailer();
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
@@ -77,23 +81,24 @@ function contact($conn, $userEmail, $userMessage, $userSubject, $userName) {
 
     $mail->setFrom($userEmail, $userName);
     $mail->addReplyTo($userEmail, $userName);
-    
+
     $mail->addAddress('sofia.fernandesfs4@gmail.com');
-    
+
     $mail->Subject = $subject;
-    
+
     $mail->msgHTML($message);
 
-    if(!$mail->send()) {
-        echo 'Erro ao enviar o e-mail: '. $mail->ErrorInfo;
+    if (!$mail->send()) {
+        echo 'Erro ao enviar o e-mail: ' . $mail->ErrorInfo;
         exit();
     } else {
         header("Location: ../../views/investor/contact-form.php?email=enviado");
-        exit(); 
+        exit();
     }
 }
 
-function detailsPost($conn, $id) {
+function detailsPost($conn, $id)
+{
     $query = "SELECT p.*, s.nomeStartup AS startup_name 
               FROM post p 
               LEFT JOIN startups s ON p.startup_id = s.id 
@@ -105,7 +110,8 @@ function detailsPost($conn, $id) {
     return $result->fetch_assoc();
 }
 
-function detailsStartup($conn, $id) {
+function detailsStartup($conn, $id)
+{
     $query = "SELECT * FROM startups WHERE id = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("i", $id);
@@ -115,7 +121,8 @@ function detailsStartup($conn, $id) {
 
 }
 
-function getInfo($conn, $id) {
+function getInfo($conn, $id)
+{
     $query = "SELECT * FROM users WHERE id = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("i", $id);
@@ -124,11 +131,12 @@ function getInfo($conn, $id) {
     return $result->fetch_assoc();
 }
 
-function updateInfo($conn, $id, $email, $full_name) {
+function updateInfo($conn, $id, $email, $full_name)
+{
     $query = "UPDATE users SET full_name = ?, email = ? WHERE id = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("ssi", $full_name, $email, $id);
-    if($stmt->execute()) {
+    if ($stmt->execute()) {
         session_start();
         session_destroy();
         header("Location: ../../views/investor/login.php?update=updated");
@@ -139,7 +147,8 @@ function updateInfo($conn, $id, $email, $full_name) {
     }
 }
 
-function editPassword($conn, $email, $oldPassword, $newPassword, $repeatPassword) {
+function editPassword($conn, $email, $oldPassword, $newPassword, $repeatPassword)
+{
     $sql = "SELECT * FROM users WHERE email = '$email'";
     $result = mysqli_query($conn, $sql);
     $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -154,7 +163,7 @@ function editPassword($conn, $email, $oldPassword, $newPassword, $repeatPassword
         } else if (strlen($newPassword) < 8 || strlen($repeatPassword) < 8) {
             header("Location: ../../views/investor/edit-password.php?password=size");
             exit();
-        } else if ($newPassword!==$repeatPassword) {
+        } else if ($newPassword !== $repeatPassword) {
             header("Location: ../../views/investor/edit-password.php?password=different");
             exit();
         } else {
@@ -183,7 +192,8 @@ function editPassword($conn, $email, $oldPassword, $newPassword, $repeatPassword
 }
 
 
-function getStartups($conn) {
+function getStartups($conn)
+{
     $query = "SELECT * FROM startups";
     $stmt = $conn->prepare($query);
     $stmt->execute();
@@ -194,10 +204,11 @@ function getStartups($conn) {
         $startups[] = $row;
     }
 
-    return $startups; 
+    return $startups;
 }
 
-function getPosts($conn) {
+function getPosts($conn)
+{
     $query = "SELECT * FROM post";
     $stmt = $conn->prepare($query);
     $stmt->execute();
@@ -208,10 +219,11 @@ function getPosts($conn) {
         $posts[] = $row;
     }
 
-    return $posts; 
+    return $posts;
 }
 
-function contactStartup($conn, $userEmail, $userMessage, $userSubject, $userName, $startup_id) {
+function contactStartup($conn, $userEmail, $userMessage, $userSubject, $userName, $startup_id)
+{
     $mail = new PHPMailer();
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
@@ -221,7 +233,7 @@ function contactStartup($conn, $userEmail, $userMessage, $userSubject, $userName
     $mail->Username = 'sofia.fernandesfs4@gmail.com';
     $mail->Password = 'ovjl zihd halz bbyc';
 
-    
+
     $stmt = $conn->prepare("SELECT * FROM startups WHERE id = ?");
     $stmt->bind_param("s", $startup_id);
 
@@ -248,7 +260,7 @@ function contactStartup($conn, $userEmail, $userMessage, $userSubject, $userName
     $default_message .= "<p> Abaixo, o investidor lhe enviou uma mensagem para iniciarem esse primeiro contato! Caso esteja interessado, você poderá entrar em contato com ele através do email acima descrito! </p>";
     $default_message .= "<p> Mensagem: </p>";
     $default_message .= "<p> $userMessage </p>";
-     
+
     $message = $default_message;
     $subject = $userSubject;
     $mail->msgHTML($message);

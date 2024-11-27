@@ -1,23 +1,31 @@
 <?php
 session_start();
 if (isset($_SESSION["user"])) {
-   header("Location: index.php");
+    header("Location: index.php");
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- // CSS -->
+    <link rel="stylesheet" href="../../design/investors/registration.css">
+    <!-- // Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <title>Registration Form</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
-        <h1 class="form-group"> Cadastrar Investidor </h1>
-        <form action="../../controllers/investor/register.php" method="post">
+        <h1 class="form-title"> Cadastrar Investidor </h1>
+        <form class="form-container" action="../../controllers/investor/register.php" method="post">
             <div class="form-group">
                 <input type="text" class="form-control" name="fullname" placeholder="Nome">
             </div>
@@ -32,18 +40,49 @@ if (isset($_SESSION["user"])) {
             </div>
             <div class="form-group form-btn">
                 <button type="submit" name="register" class="btn btn-primary"> Cadastrar </button>
-            </div> 
+            </div>
         </form>
-        <div>
         <div>
             <p> Já possui conta? <a href="login.php">Login</a></p>
         </div>
         <div>
-            <p> Deseja criar conta STARTUP? <a href="signup-startup.php"> Criar </a></p>
+            <p> Deseja criar conta STARTUP? <a href="../../views/startup/registration.php"> Criar </a></p>
         </div>
-      </div>
+        <?php
 
-      
+        if (isset($_GET["fields"])) {
+            if ($_GET["fields"] == "empty") {
+                echo "<div class='alert alert-danger'> Todos os campos devem ser preenchidos! </div>";
+            }
+        }
+
+        if (isset($_GET["email"])) {
+            if ($_GET["email"] == "invalid") {
+                echo "<div class='alert alert-danger'> Email inválido! </div>";
+            } else if ($_GET["email"] == "error") {
+                echo "<div class='alert alert-danger'> Email já cadastrado! </div>";
+            }
+        }
+
+        if (isset($_GET["password"])) {
+            if ($_GET["password"] == "invalid") {
+                echo "<div class='alert alert-danger'> Senha deve conter no mínimo 8 caracteres </div>";
+            } else if ($_GET["password"] == "different") {
+                echo "<div class='alert alert-danger'> As senhas não conferem! </div>";
+            }
+        }
+
+        if (isset($_GET["register"])) {
+            if ($_GET["register"] == "success") {
+                echo "<div class='alert alert-success'> Registro feito com sucesso, agora você poderá realizar login! </div>";
+            } else if ($_GET["register"] == "error") {
+                echo "<div class='alert alert-danger'> Houve um erro no seu cadastro, tente novamente! </div>";
+            }
+        }
+
+
+        ?>
     </div>
 </body>
+
 </html>

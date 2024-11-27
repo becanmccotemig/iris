@@ -6,7 +6,8 @@ use PHPMailer\PHPMailer\SMTP;
 require __DIR__ . '../../vendor/autoload.php';
 
 
-function register($conn, $nomeStartup, $descricao, $criador, $areaAtuacao, $endereco, $contato, $link, $emailStartup, $password, $passwordRepeat, $passwordHash) {
+function register($conn, $nomeStartup, $descricao, $criador, $areaAtuacao, $endereco, $contato, $link, $emailStartup, $password, $passwordRepeat, $passwordHash)
+{
     $sql = "SELECT * FROM startups WHERE emailStartup = '$emailStartup'";
     $result = mysqli_query($conn, $sql);
     $rowCount = mysqli_num_rows($result);
@@ -17,9 +18,9 @@ function register($conn, $nomeStartup, $descricao, $criador, $areaAtuacao, $ende
     } else {
         $sql = "INSERT INTO startups (nomeStartup, descricao, fundador, setor, endereco, contato, website, emailStartup, password) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )";
         $stmt = mysqli_stmt_init($conn);
-        $prepareStmt = mysqli_stmt_prepare($stmt,$sql);
-        if ($prepareStmt)  {
-            mysqli_stmt_bind_param($stmt,"sssssssss",$nomeStartup, $descricao, $criador, $areaAtuacao, $endereco, $contato, $link, $emailStartup, $passwordHash);
+        $prepareStmt = mysqli_stmt_prepare($stmt, $sql);
+        if ($prepareStmt) {
+            mysqli_stmt_bind_param($stmt, "sssssssss", $nomeStartup, $descricao, $criador, $areaAtuacao, $endereco, $contato, $link, $emailStartup, $passwordHash);
             mysqli_stmt_execute($stmt);
             header("Location: ../../views/startup/registration.php?register=success");
             exit();
@@ -31,7 +32,8 @@ function register($conn, $nomeStartup, $descricao, $criador, $areaAtuacao, $ende
 
 }
 
-function login($conn, $email, $password) {
+function login($conn, $email, $password)
+{
     $sql = "SELECT * FROM startups WHERE emailStartup = '$email'";
     $result = mysqli_query($conn, $sql);
     $startup = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -40,7 +42,7 @@ function login($conn, $email, $password) {
         if (password_verify($password, $startup["password"])) {
             session_start();
             $_SESSION['id'] = $startup['id']; // Armazena o ID do usuário na sessão
-            $_SESSION['nomeStartup'] = $startup['nomeStartup']; 
+            $_SESSION['nomeStartup'] = $startup['nomeStartup'];
             $_SESSION['descricao'] = $startup['descricao'];
             $_SESSION['fundador'] = $startup['fundador'];
             $_SESSION['setor'] = $startup['setor'];
@@ -61,19 +63,20 @@ function login($conn, $email, $password) {
 
 }
 
-function deleteAccount($conn, $user_id_to_delete) {
+function deleteAccount($conn, $user_id_to_delete)
+{
     $sql = "DELETE FROM startups WHERE id = ?";
     $stmt = mysqli_stmt_init($conn);
     $prepareStmt = mysqli_stmt_prepare($stmt, $sql);
     if ($prepareStmt) {
         mysqli_stmt_bind_param($stmt, "i", $user_id_to_delete);
-        if(mysqli_stmt_execute($stmt)) {
+        if (mysqli_stmt_execute($stmt)) {
             $sql = "DELETE FROM post WHERE startup_id = ?";
             $stmt = mysqli_stmt_init($conn);
             $prepareStmt = mysqli_stmt_prepare($stmt, $sql);
-            if($prepareStmt) {
+            if ($prepareStmt) {
                 mysqli_stmt_bind_param($stmt, "i", $user_id_to_delete);
-                if(mysqli_stmt_execute($stmt)) {
+                if (mysqli_stmt_execute($stmt)) {
                     session_destroy();
                     header("Location: ../../views/startup/login.php?delete=deletado");
                     exit();
@@ -88,14 +91,15 @@ function deleteAccount($conn, $user_id_to_delete) {
         } else {
             header("Location: ../../views/startup/index.php?delete=error");
             exit();
-        }   
+        }
     } else {
         header("Location: ../../views/startup/index.php?delete=error");
         exit();
-    }  
+    }
 }
 
-function getInfo($conn, $emailStartup) {
+function getInfo($conn, $emailStartup)
+{
     $query = "SELECT * FROM startups WHERE emailStartup = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $emailStartup);
@@ -104,11 +108,12 @@ function getInfo($conn, $emailStartup) {
     return $result->fetch_assoc();
 }
 
-function updateInfo($conn, $nomeStartup, $descricao, $criador, $areaAtuacao, $endereco, $contato, $link, $emailStartup, $newEmail) {
+function updateInfo($conn, $nomeStartup, $descricao, $criador, $areaAtuacao, $endereco, $contato, $link, $emailStartup, $newEmail)
+{
     $query = "UPDATE startups SET nomeStartup = ?, descricao = ?, fundador =  ?, setor =  ?, endereco =  ?, contato =  ?, website =  ?, emailStartup = ? WHERE emailStartup = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("sssssssss", $nomeStartup, $descricao, $criador, $areaAtuacao, $endereco, $contato, $link, $newEmail, $emailStartup);
-    if($stmt->execute()) {
+    if ($stmt->execute()) {
         session_start();
         session_destroy();
         header("Location: ../../views/startup/login.php?update=updated");
@@ -119,7 +124,8 @@ function updateInfo($conn, $nomeStartup, $descricao, $criador, $areaAtuacao, $en
     }
 }
 
-function  editPassword($conn, $email, $oldPassword, $newPassword, $repeatPassword) {
+function editPassword($conn, $email, $oldPassword, $newPassword, $repeatPassword)
+{
     $sql = "SELECT * FROM startups WHERE emailStartup = '$email'";
     $result = mysqli_query($conn, $sql);
     $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -134,7 +140,7 @@ function  editPassword($conn, $email, $oldPassword, $newPassword, $repeatPasswor
         } else if (strlen($newPassword) < 8 || strlen($repeatPassword) < 8) {
             header("Location: ../../views/startup/edit-password.php?password=size");
             exit();
-        } else if ($newPassword!==$repeatPassword) {
+        } else if ($newPassword !== $repeatPassword) {
             header("Location: ../../views/startup/edit-password.php?password=different");
             exit();
         } else {

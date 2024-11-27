@@ -1,6 +1,6 @@
 <?php
 include "../../model/investor.php";
-include "../../database/database.php"; 
+include "../../database/database.php";
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -30,47 +30,46 @@ if (isset($_GET['id'])) {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- // CSS -->
+    <link rel="stylesheet" href="../../components/header/investor/header.css">
+    <link rel="stylesheet" href="../../components/header/investor/footer.css">
+    <link rel="stylesheet" href="../../design/investors/details-startup.css">
+    <link rel="stylesheet" href="../../design/global/global.css">
+    <!-- // Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <title>Investor Startup Details</title>
-    <link rel="stylesheet" href="details.css"> 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    
-
-    <!-- font montserrat font-family: "Montserrat", sans-serif;  -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-    <!-- font lato font-family: "Lato", sans-serif; -->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <div class="container">
-            <div class="title">
+    <?php
+    include_once '../../components/header/investor/header.php';
+    ?>
+    <div class="container main-content ">
+        <div class="title">
+            <h1> <?php echo $nomeStartup; ?> </h1>
+            <h3> <?php echo $setor; ?> </h3>
+        </div>
 
-                <h1> <?php echo $nomeStartup; ?> </h1>
-                <h3> <?php echo $setor; ?> </h3>
+        <p> <?php echo $descricao; ?> </p>
+        <p> Endereco: <?php echo $endereco; ?> </p>
+        <p> Fundador(es): <?php echo $fundador; ?> </p>
+        <p> Site: <?php echo $website; ?></p>
+        <p> Email de contato: <?php echo $emailStartup; ?></p>
+        <p> Número de contato: <?php echo $contato; ?></p>
 
-            </div>
-
-            <p> <?php echo $descricao; ?> </p>
-            <p> Endereco: <?php echo $endereco; ?> </p>
-            <p> Fundador(es): <?php echo $fundador; ?> </p>
-            <p> Site: <?php echo $website; ?></p>
-            <p> Email de contato: <?php echo $emailStartup; ?></p>
-            <p> Número de contato: <?php echo $contato; ?></p>
-            
     </div>
 
-    <div class="container">
-        <h1 class="form-group"> Se interessou por essa startup? Entre em contato com ela! </h1>
+    <div class="container main-content">
+        <h1 class="form-group form-title"> Se interessou por essa startup? Entre em contato com ela! </h1>
         <form action="../../controllers/investor/contact-startup.php" method="post">
             <input type="hidden" name="startup-id" value="<?php echo $id; ?>">
             <div class="form-group">
@@ -81,37 +80,40 @@ if (isset($_GET['id'])) {
                 <label for="email"> Email </label>
                 <input type="email" placeholder="Seu email..." name="email" class="form-control">
             </div>
-            <div class="form-btn form-group">
+            <div class="form-group">
                 <label for="assunto"> Assunto </label>
                 <input type="text" placeholder="Assunto" name="assunto" class="form-control">
             </div>
-            <div class="form-btn form-group">
+            <div class="form-group">
                 <label for="mensagem"> Mensagem </label>
                 <textarea name="mensagem" class="form-control" placeholder="Corpo do seu email"></textarea>
             </div>
 
             <div class="form-btn form-group">
-                <button type="submit" name="send-email" class="btn btn-primary"> Enviar email! </button>
+                <button type="submit" name="send-email" class="btn btn-primary"> Enviar email </button>
             </div>
-                    
+
         </form>
 
         <?php
 
-            if (isset($_GET["email"])) {
-                if($_GET["email"] == "error") {
-                    echo "<div class='alert alert-success'> Houve um erro no envio do seu email! </div>";
-                } else if($_GET["email"] == "enviado") {
-                    echo "<div class='alert alert-success'> Email enviado com sucesso! </div>";
-                }
-            } 
+        if (isset($_GET["email"])) {
+            if ($_GET["email"] == "error") {
+                echo "<div class='alert alert-danger'> Houve um erro no envio do seu email! </div>";
+            } else if ($_GET["email"] == "enviado") {
+                echo "<div class='alert alert-success'> Email enviado com sucesso! </div>";
+            }
+        }
 
         ?>
 
     </div>
 
-    <div class="container">
-        <a href="home.php" class="btn btn-secondary mt-3">Voltar</a>
-    </div>
+    <a href="home.php" class="btn btn-back mt-3">Voltar</a>
+
+    <?php
+    include_once '../../components/header/investor/footer.php';
+    ?>
 </body>
+
 </html>

@@ -7,7 +7,7 @@ include "../../database/database.php"; // Certifique-se de que o arquivo contém
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $postDetails = detailsPost($conn, $id);
-    
+
     if ($postDetails) {
         $titulo = $postDetails['post_title'];
         $startupName = $postDetails['startup_name'];
@@ -26,32 +26,41 @@ if (isset($_GET['id'])) {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- // CSS -->
+    <link rel="stylesheet" href="../../components/header/investor/header.css">
+    <link rel="stylesheet" href="../../components/header/investor/footer.css">
+    <link rel="stylesheet" href="../../design/investors/details-post-startup.css">
+    <link rel="stylesheet" href="../../design/global/global.css">
+    <!-- // Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <title>Investor Startup Posts</title>
-    <link rel="stylesheet" href="details.css"> 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <div class="container">
-        <h1><?php echo htmlspecialchars($titulo); ?></h1>
-        <h4>Startup: <?php echo htmlspecialchars($startupName); ?></h4>
-        <h4>Categoria: <?php echo htmlspecialchars($category); ?></h4>
-        <p><?php echo nl2br(htmlspecialchars($body)); ?></p>
+    <?php
+    include_once '../../components/header/investor/header.php';
+    ?>
+    <div class="container main-content">
+        <h1 class="details-title"><?php echo htmlspecialchars($titulo); ?></h1>
+        <h4 class="details-subtitle">Startup: <?php echo htmlspecialchars($startupName); ?></h4>
+        <h4 class="details-subtitle">Categoria: <?php echo htmlspecialchars($category); ?></h4>
+        <p class="details-post"><?php echo nl2br(htmlspecialchars($body)); ?></p>
         <a href="posts.php" class="btn btn-secondary mt-3">Voltar</a>
     </div>
 
-    <footer class="footer">
-        <!-- Seu rodapé aqui -->
-    </footer>
+    <?php
+    include_once '../../components/header/investor/footer.php';
+    ?>
 </body>
+
 </html>

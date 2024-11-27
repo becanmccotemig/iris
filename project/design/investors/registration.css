@@ -1,0 +1,135 @@
+body,
+html {
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #040950;
+}
+
+.container {
+    margin-top: 3vh;
+    max-width: 600px;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+.form-title {
+    font-size: 2rem;
+    color: #040950;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-container label {
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #040950;
+    outline: none;
+}
+
+.form-btn {
+    margin-top: 10px;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #040950;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #020630;
+    transform: scale(1.02);
+}
+
+.texts p {
+    font-size: 0.9rem;
+    color: #555;
+    text-align: center;
+}
+
+.texts a {
+    color: #040950;
+    ;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.texts a:hover {
+    color: #020630;
+    text-decoration: underline;
+}
+
+.alert {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.alert-danger {
+    background-color: #ffcccc;
+    color: #a80000;
+    border: 1px solid #ff6666;
+}
+
+.alert-success {
+    background-color: #ccffcc;
+    color: #008000;
+    border: 1px solid #66cc66;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    label,
+    p {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}

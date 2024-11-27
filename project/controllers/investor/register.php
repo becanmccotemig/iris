@@ -14,13 +14,17 @@ if (isset($_POST["register"])) {
     
 
     if (empty($fullName) || empty($email) || empty($password) || empty($passwordRepeat)) {
-        echo "<div class='alert alert-danger'> Todos os campos devem ser preenchidos </div>";
+        header("Location: ../../views/investor/registration.php?fields=empty");
+        exit();
     } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "<div class='alert alert-danger'> Email inválido </div>";
+        header("Location: ../../views/investor/registration.php?email=invalid");
+        exit();
     } else if(strlen($password) < 8) {
-        echo "<div class='alert alert-danger'> Senha deve ter no mínimo 8 caracteres </div>";
+        header("Location: ../../views/investpr/registration.php?password=invalid");
+        exit();
     } else if($password !== $passwordRepeat) {
-        echo "<div class='alert alert-danger'> As senhas não conferem, tente novamente! </div>";
+        header("Location: ../../views/investor/registration.php?password=different");
+        exit();
     } else {
         register($conn, $fullName, $email, $passwordHash);
     }
