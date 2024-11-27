@@ -13,14 +13,14 @@
     justify-content: center;
 }
 
-.container h1 {
+.title {
     font-size: 2.2rem;
     color: #040950;
     margin-bottom: 20px;
     font-weight: bold;
 }
 
-.container p {
+.subtitle {
     width: 70%;
     text-align: center;
     font-size: 1rem;
@@ -64,6 +64,32 @@
 }
 
 /* RESPONDIVIDADE */
+/* Desktop (Largura acima de 1024px) */
+@media (min-width: 1024px) {
+    .container {
+        width: 50%;
+        padding: 40px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        width: 60%;
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 12px 24px;
+    }
+}
+
+/* Celular (Largura abaixo de 768px) */
 @media (max-width: 768px) {
     .container {
         padding: 20px;

@@ -36,8 +36,8 @@ $post_id = $_POST["post_id"];
     include_once '../../components/header/startup/header.php';
     ?>
     <div class="container main-content">
-        <h1>Deletar post</h1>
-        <p>Ao clicar no botão abaixo, você entende que o post que você selecionou será deletado!</p>
+        <h1 class="title">Deletar post</h1>
+        <p class="subtitle">Ao clicar no botão abaixo, você entende que o post que você selecionou será deletado!</p>
 
         <form action="../../controllers/startup/delete-post.php" method="post">
             <input type="hidden" name="post_id" value="<?php echo htmlspecialchars($post_id); ?>">

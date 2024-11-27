@@ -1,7 +1,6 @@
 .container {
     max-width: 800px;
     min-width: 500px;
-    /* Permite melhor responsividade */
     margin: 40px auto;
     padding: 40px;
     background-color: #ffffff;
@@ -12,7 +11,6 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    /* Centraliza texto */
 }
 
 .details-title {
@@ -67,11 +65,35 @@
 }
 
 /* RESPONSIVIDADE */
+/* Desktop (Largura acima de 1024px) */
+@media (min-width: 1024px) {
+    .container {
+        width: 60%;
+        padding: 50px;
+    }
+
+    .details-title {
+        font-size: 3.5rem;
+    }
+
+    .details-subtitle {
+        font-size: 1.7rem;
+    }
+
+    .details-post {
+        font-size: 1.1rem;
+    }
+
+    .btn {
+        font-size: 1.1rem;
+        padding: 14px 28px;
+    }
+}
+
+/* Celular (Largura abaixo de 768px) */
 @media (max-width: 768px) {
     .container {
         padding: 20px;
-        gap: 15px;
-        /* Ajusta o espaçamento */
     }
 
     .details-title {
@@ -84,29 +106,10 @@
 
     .details-post {
         font-size: 0.95rem;
-        line-height: 1.5;
     }
 
     .btn {
         font-size: 0.9rem;
         padding: 10px 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 15px;
-    }
-
-    .details-title {
-        font-size: 1.8rem;
-    }
-
-    .details-subtitle {
-        font-size: 1rem;
-    }
-
-    .details-post {
-        font-size: 0.9rem;
     }
 }

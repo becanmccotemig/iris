@@ -116,18 +116,42 @@ form {
 }
 
 /* Responsividade */
-@media (max-width: 768px) {
+
+/* Desktop (Largura acima de 1024px) */
+@media (min-width: 1024px) {
     .container {
-        padding: 10px;
+        max-width: 700px;
+        padding: 40px;
+    }
+
+    .title {
+        font-size: 3rem; 
+    }
+
+    .info-title {
+        font-size: 1.5rem; 
+    }
+
+    .btn {
+        font-size: 1rem;  
+        padding: 12px 20px;
     }
 
     .post-container {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row; 
+        justify-content: flex-start;
     }
 
     .post {
-        width: 90%;
+        width: 300px; 
+    }
+}
+
+/* Celular (Largura abaixo de 768px) */
+@media (max-width: 768px) {
+    .container {
+        max-width: 90%;
+        padding: 10px;
     }
 
     .title {
@@ -139,6 +163,21 @@ form {
     }
 
     .btn {
-        font-size: 0.9rem;
+        font-size: 0.9rem; 
+        padding: 10px 18px;
+    }
+
+    .post-container {
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    .post {
+        width: 90%; 
+    }
+
+    .btns {
+        flex-direction: column; 
+        margin-top: 20px;
     }
 }

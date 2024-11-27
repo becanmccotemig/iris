@@ -86,12 +86,47 @@
 
 
 /* RESPONSIVIDADE */
-@media (max-width: 768px) {
+
+/* Desktop (Largura acima de 1024px) */
+@media (min-width: 1024px) {
     .container {
+        width: 80%;
         padding: 20px;
     }
 
-    h1 {
-        font-size: 1.8rem;
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .form-group {
+        width: 80%;
+    }
+}
+/* Celular (Largura abaixo de 768px) */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .title {
+        font-size: 2.2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .form-group {
+        width: 100%;
+    }
+
+    .form-control {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 8px 16px;
     }
 }

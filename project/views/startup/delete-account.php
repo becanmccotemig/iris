@@ -36,8 +36,8 @@ $user_id = $_SESSION["id"];
     include_once '../../components/header/startup/header.php';
     ?>
     <div class="container main-content">
-        <h1>Deletar conta</h1>
-        <p>Ao clicar no botão abaixo, você entende que sua conta, junto com os seus dados serão deletados!</p>
+        <h1 class="title">Deletar conta</h1>
+        <p class="subtitle">Ao clicar no botão abaixo, você entende que sua conta, junto com os seus dados serão deletados!</p>
 
         <!-- Formulário para enviar o id para a página de confirmação de exclusão -->
         <form action="../../controllers/startup/delete-account.php" method="post">

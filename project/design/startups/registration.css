@@ -114,17 +114,24 @@ html {
 }
 
 /* Responsividade */
-@media (max-width: 768px) {
+
+/* Desktop (Largura acima de 1024px) */
+@media (max-width: 1024px) {
     .container {
-        padding: 20px;
+        padding: 30px;
+        margin-top: 5vh;
     }
 
-    h1 {
-        font-size: 1.5rem;
+    .form-title {
+        font-size: 1.8rem;
     }
 
-    label,
-    p {
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-control {
+        padding: 10px;
         font-size: 0.9rem;
     }
 
@@ -132,4 +139,46 @@ html {
         padding: 10px;
         font-size: 0.9rem;
     }
+
+    .texts p {
+        font-size: 0.8rem;
+    }
 }
+
+/* Celular (Largura abaixo de 768px) */
+@media (max-width: 768px) {
+    body,
+    html {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .container {
+        width: 100%;
+        padding: 20px;
+        margin-top: 10vh;
+    }
+
+    .form-title {
+        font-size: 1.6rem;
+    }
+
+    .form-group {
+        margin-bottom: 12px;
+    }
+
+    .form-control {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .texts p {
+        font-size: 0.75rem;
+    }
+}
+
