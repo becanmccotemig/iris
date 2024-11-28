@@ -1,4 +1,5 @@
 <?php
+include($_SERVER['DOCUMENT_ROOT'] . '/project/database/database.php');
 session_start();
 
 if (!isset($_SESSION["id"], $_SESSION["user"], $_SESSION["full_name"])) {
