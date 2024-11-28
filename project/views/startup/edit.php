@@ -19,8 +19,8 @@ $startup = getInfo($conn, $emailStartup);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- // CSS -->
-    <link rel="stylesheet" href="../../components/header/startup/header.css">
-    <link rel="stylesheet" href="../../components/header/startup/footer.css">
+    <link rel="stylesheet" href="../../components/startup/header.css">
+    <link rel="stylesheet" href="../../components/startup/footer.css">
     <link rel="stylesheet" href="../../design/startups/edit.css">
     <link rel="stylesheet" href="../../design/global/global.css">
     <!-- // Fonte -->
@@ -34,7 +34,7 @@ $startup = getInfo($conn, $emailStartup);
 
 <body>
     <?php
-    include_once '../../components/header/startup/header.php';
+    include_once '../../components/startup/header.php';
     ?>
     <div class="container main-content">
         <h1 class="title">Editar informações</h1>
@@ -95,7 +95,7 @@ $startup = getInfo($conn, $emailStartup);
         ?>
     </div>
     <?php
-    include_once '../../components/header/startup/footer.php';
+    include_once '../../components/startup/footer.php';
     ?>
 </body>
 

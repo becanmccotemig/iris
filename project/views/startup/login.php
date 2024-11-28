@@ -18,8 +18,8 @@
 
 <body>
     <div class="marca">
-        <img src="">
-        <h1>ÍRIS</h1>
+        <img class="logo" src="/teste-git/iris/project/components/icons/logo.svg">
+        <h1>Íris</h1>
     </div>
     <div class="container">
         <h1 class="form-title"> Login Startup </h1>
@@ -39,9 +39,6 @@
         </div>
         <div>
             <p> É um INVESTIDOR já cadastrado? <a href="../investor/login.php"> Logar </a></p>
-        </div>
-        <div>
-            <p> <a href="reset-password.php"> Esqueceu a senha? </a> </p>
         </div>
         <div>
             <?php

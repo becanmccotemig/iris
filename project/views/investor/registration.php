@@ -42,11 +42,13 @@ if (isset($_SESSION["user"])) {
                 <button type="submit" name="register" class="btn btn-primary"> Cadastrar </button>
             </div>
         </form>
-        <div>
-            <p> Já possui conta? <a href="login.php">Login</a></p>
-        </div>
-        <div>
-            <p> Deseja criar conta STARTUP? <a href="../../views/startup/registration.php"> Criar </a></p>
+        <div class="texts">
+            <div>
+                <p> Já possui conta? <a href="login.php">Logar</a></p>
+            </div>
+            <div>
+                <p> Deseja criar conta STARTUP? <a href="../../views/startup/registration.php"> Criar </a></p>
+            </div>
         </div>
         <?php
 

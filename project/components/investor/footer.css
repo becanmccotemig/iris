@@ -12,10 +12,18 @@
 }
 
 .footer-logo {
+    height: 80%;
     width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer-logo img{
+    height: 100%;
 }
 
-.footer-title {
+.footer h1 {
+
     font-size: 1em;
     text-align: center;
     margin: 0 auto;
@@ -70,7 +78,6 @@
 .footer-news button:hover {
     cursor: pointer;
 }
-
 /*RESPONSIVIDADE*/
 
 /* Desktop (Largura acima de 1024px) */

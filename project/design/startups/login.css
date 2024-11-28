@@ -8,7 +8,6 @@ html {
     font-family: 'Inter', sans-serif;
     display: flex;
     flex-direction: row;
-    /* Divide a tela horizontalmente */
     overflow: hidden;
 }
 
@@ -17,17 +16,18 @@ html {
     background-color: #040950;
     color: #fff;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 20px;
 }
 
-.marca img {
-    width: 120px;
-    height: auto;
-    margin-bottom: 20px;
+.logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 120px;
+    max-height: 150px;
 }
 
 .marca h1 {

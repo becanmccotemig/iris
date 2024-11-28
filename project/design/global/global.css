@@ -8,40 +8,29 @@ body {
 }
 
 .main-content {
-    flex: 1; 
-    padding: 20px; 
-    box-sizing: border-box;
-}
-
-/* Rodapé ajustado para sempre ficar no final da página */
-footer {
-    margin-top: auto; 
-    background-color: #040950;
-    color: #ffffff;
-    text-align: center;
+    flex: 1;
     padding: 20px;
-    font-size: 1rem;
 }
 
-/* Alerta de mensagens */
+footer {
+    margin-top: auto;
+}
+
 .alert {
     padding: 15px;
     margin-top: 20px;
     border-radius: 5px;
     text-align: center;
-    font-size: 1rem;
 }
 
 .alert-danger {
     background-color: #f8d7da;
     color: #721c24;
-    border: 1px solid #f5c6cb;
 }
 
 .alert-success {
     background-color: #d4edda;
     color: #155724;
-    border: 1px solid #c3e6cb;
 }
 
 /*RESPONSIVIDADE*/

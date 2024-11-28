@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- // CSS -->
-    <link rel="stylesheet" href="../../components/header/startup/header.css">
-    <link rel="stylesheet" href="../../components/header/startup/footer.css">
+    <link rel="stylesheet" href="../../components/startup/header.css">
+    <link rel="stylesheet" href="../../components/startup/footer.css">
     <link rel="stylesheet" href="../../design/startups/edit-password.css">
     <link rel="stylesheet" href="../../design/global/global.css">
     <!-- // Fonte -->
@@ -22,7 +22,7 @@
 
 <body>
     <?php
-    include_once '../../components/header/startup/header.php';
+    include_once '../../components/startup/header.php';
     ?>
     <div class="container">
 
@@ -82,7 +82,7 @@
     </div>
 
     <?php
-    include_once '../../components/header/startup/footer.php';
+    include_once '../../components/startup/footer.php';
     ?>
 </body>
 

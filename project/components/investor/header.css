@@ -1,0 +1,82 @@
+.top-header {
+    width: 100%;
+    height: 80px;
+    background-color: #040950;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ul-top-header {
+    width: 100%;
+    height: 80%;
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.ul-top-header li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60%;
+    text-align: center;
+    list-style: none;
+}
+
+.ul-top-header a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.a-top-header:hover {
+    color: #e4e4e4;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+.logo{
+    height: auto;
+}
+
+.logo img{
+    width: 100%;
+    height: 300%;
+}
+
+/*RESPONSIVIDADE*/
+
+/* Desktop (Largura acima de 1024px) */
+@media (min-width: 1024px) {
+    .ul-top-header {
+        grid-template-columns: 7fr 1.5fr 1.5fr 1.5fr;
+    }
+
+    .a-top-header {
+        font-size: 1rem;
+    }
+}
+
+/* Celular (Largura até 768px) */
+@media (max-width: 768px) {
+    .top-header {
+        height: auto;
+        padding: 10px 0;
+    }
+
+    .ul-top-header {
+        grid-template-columns: 1fr;
+        grid-row-gap: 10px;
+        text-align: center;
+    }
+
+    .li-top-header {
+        width: 100%;
+    }
+
+    .a-top-header {
+        font-size: 0.9rem;
+    }
+}

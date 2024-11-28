@@ -19,8 +19,8 @@ $full_name = $_SESSION["full_name"];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- // CSS -->
-    <link rel="stylesheet" href="../../components/header/investor/header.css">
-    <link rel="stylesheet" href="../../components/header/investor/footer.css">
+    <link rel="stylesheet" href="../../components/investor/header.css">
+    <link rel="stylesheet" href="../../components/investor/footer.css">
     <link rel="stylesheet" href="../../design/investors/delete-account.css">
     <link rel="stylesheet" href="../../design/global/global.css">
     <!-- // Fonte -->
@@ -34,7 +34,7 @@ $full_name = $_SESSION["full_name"];
 
 <body>
     <?php
-    include_once '../../components/header/investor/header.php';
+    include_once '../../components/investor/header.php';
     ?>
     <div class="container main-content">
         <h1>Deletar conta</h1>
@@ -49,7 +49,7 @@ $full_name = $_SESSION["full_name"];
         <a href="index.php" class="btn btn-secondary mt-3">Cancelar</a>
     </div>
     <?php
-    include_once '../../components/header/investor/footer.php';
+    include_once '../../components/investor/footer.php';
     ?>
 </body>
 

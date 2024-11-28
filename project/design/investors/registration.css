@@ -81,8 +81,7 @@ html {
 }
 
 .texts a {
-    color: #040950;
-    ;
+    color: #040950;;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;

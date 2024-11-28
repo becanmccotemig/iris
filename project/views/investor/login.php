@@ -11,7 +11,6 @@ include "../../database/database.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <!-- // CSS -->
     <link rel="stylesheet" href="../../design/investors/login.css">
     <!-- // Fonte -->
@@ -25,8 +24,8 @@ include "../../database/database.php";
 
 <body>
     <div class="marca">
-        <img src="">
-        <h1>ÍRIS</h1>
+        <img class="logo" src="/teste-git/iris/project/components/icons/logo.svg">
+        <h1>Íris</h1>
     </div>
     <div class="container">
         <h1 class="form-title"> Login Investidor </h1>
@@ -47,7 +46,6 @@ include "../../database/database.php";
         <div>
             <p> É uma STARTUP já cadastrada? <a href="../startup/login.php"> Logar </a></p>
         </div>
-        <p> <a href="reset-password.php"> Esqueceu a senha? </a> </p>
 
         <div>
             <?php

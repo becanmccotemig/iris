@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- // CSS -->
-    <link rel="stylesheet" href="../../components/header/investor/header.css">
-    <link rel="stylesheet" href="../../components/header/investor/footer.css">
+    <link rel="stylesheet" href="../../components/investor/header.css">
+    <link rel="stylesheet" href="../../components/investor/footer.css">
     <link rel="stylesheet" href="../../design/investors/edit-password.css">
     <link rel="stylesheet" href="../../design/global/global.css">
     <!-- // Fonte -->
@@ -22,7 +22,7 @@
 
 <body>
     <?php
-    include_once '../../components/header/investor/header.php';
+    include_once '../../components/investor/header.php';
     ?>
     <div class="container main-content">
 
@@ -74,7 +74,7 @@
         ?>
     </div>
     <?php
-    include_once '../../components/header/investor/footer.php';
+    include_once '../../components/investor/footer.php';
     ?>
 </body>
 

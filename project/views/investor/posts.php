@@ -18,8 +18,8 @@ $all_posts = getPosts($conn);
     <meta charset="UTF-8">
     <link rel="stylesheet" href="design/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../components/header/investor/header.css">
-    <link rel="stylesheet" href="../../components/header/investor/footer.css">
+    <link rel="stylesheet" href="../../components/investor/header.css">
+    <link rel="stylesheet" href="../../components/investor/footer.css">
     <link rel="stylesheet" href="../../design/investors/posts.css">
     <link rel="stylesheet" href="../../design/global/global.css">
 
@@ -34,7 +34,7 @@ $all_posts = getPosts($conn);
 
 <body>
     <?php
-    include_once '../../components/header/investor/header.php';
+    include_once '../../components/investor/header.php';
     ?>
     <h1 class="title-home">POSTS</h1>
     <section class="section">
@@ -73,7 +73,7 @@ $all_posts = getPosts($conn);
 
     </section>
     <?php
-    include_once '../../components/header/investor/footer.php';
+    include_once '../../components/investor/footer.php';
     ?>
 </body>
 

@@ -87,6 +87,7 @@
         padding: 12px 24px;
     }
 }
+
 /* Celular (Largura de até 768px) */
 @media (max-width: 768px) {
     .container {

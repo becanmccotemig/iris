@@ -57,7 +57,7 @@
     font-family: "Inter", sans-serif;
     font-weight: 600;
     cursor: pointer;
-    width: 50%;
+    width: 60%;
     max-width: 200px;
 }
 
@@ -131,10 +131,10 @@
         font-size: 1rem;
         padding: 12px 20px;
     }
-}
+} 
 
 /* Celular (Largura abaixo de 768px) */
-@media (max-width: 768px) {
+ @media (max-width: 768px) {
     .container {
         gap: 15px;
     }
@@ -164,4 +164,4 @@
         padding: 8px 10px;
         width: 100%;
     }
-}
+} 

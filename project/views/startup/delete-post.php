@@ -18,8 +18,8 @@ $post_id = $_POST["post_id"];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- // CSS -->
-    <link rel="stylesheet" href="../../components/header/startup/header.css">
-    <link rel="stylesheet" href="../../components/header/startup/footer.css">
+    <link rel="stylesheet" href="../../components/startup/header.css">
+    <link rel="stylesheet" href="../../components/startup/footer.css">
     <link rel="stylesheet" href="../../design/startups/delete-post.css">
     <link rel="stylesheet" href="../../design/global/global.css">
     <!-- // Fonte -->
@@ -33,7 +33,7 @@ $post_id = $_POST["post_id"];
 
 <body>
     <?php
-    include_once '../../components/header/startup/header.php';
+    include_once '../../components/startup/header.php';
     ?>
     <div class="container main-content">
         <h1 class="title">Deletar post</h1>
@@ -47,7 +47,7 @@ $post_id = $_POST["post_id"];
         <a href="index.php" class="btn btn-secondary mt-3">Cancelar</a>
     </div>
     <?php
-    include_once '../../components/header/startup/footer.php';
+    include_once '../../components/startup/footer.php';
     ?>
 </body>
 

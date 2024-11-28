@@ -36,8 +36,8 @@ if (isset($_GET['id'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- // CSS -->
-    <link rel="stylesheet" href="../../components/header/investor/header.css">
-    <link rel="stylesheet" href="../../components/header/investor/footer.css">
+    <link rel="stylesheet" href="../../components/investor/header.css">
+    <link rel="stylesheet" href="../../components/investor/footer.css">
     <link rel="stylesheet" href="../../design/investors/details-startup.css">
     <link rel="stylesheet" href="../../design/global/global.css">
     <!-- // Fonte -->
@@ -51,7 +51,7 @@ if (isset($_GET['id'])) {
 
 <body>
     <?php
-    include_once '../../components/header/investor/header.php';
+    include_once '../../components/investor/header.php';
     ?>
     <div class="container main-content ">
         <div class="title">
@@ -112,7 +112,7 @@ if (isset($_GET['id'])) {
     <a href="home.php" class="btn btn-back mt-3">Voltar</a>
 
     <?php
-    include_once '../../components/header/investor/footer.php';
+    include_once '../../components/investor/footer.php';
     ?>
 </body>
 

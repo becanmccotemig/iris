@@ -29,8 +29,8 @@ $email_startup = $_SESSION["emailStartup"];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- // CSS -->
-    <link rel="stylesheet" href="../../components/header/startup/header.css">
-    <link rel="stylesheet" href="../../components/header/startup/footer.css">
+    <link rel="stylesheet" href="../../components/startup/header.css">
+    <link rel="stylesheet" href="../../components/startup/footer.css">
     <link rel="stylesheet" href="../../design/startups/index.css">
     <link rel="stylesheet" href="../../design/global/global.css">
     <!-- // Fonte -->
@@ -44,7 +44,7 @@ $email_startup = $_SESSION["emailStartup"];
 
 <body>
     <?php
-    include_once '../../components/header/startup/header.php';
+    include_once '../../components/startup/header.php';
     ?>
 
     <div class="container main-content">
@@ -145,7 +145,7 @@ $email_startup = $_SESSION["emailStartup"];
         ?>
     </div>
     <?php
-    include_once '../../components/header/startup/footer.php';
+    include_once '../../components/startup/footer.php';
     ?>
 </body>
 

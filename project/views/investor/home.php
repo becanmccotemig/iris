@@ -19,8 +19,8 @@ $all_startups = getStartups($conn);
     <link rel="stylesheet" href="design/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- // CSS -->
-    <link rel="stylesheet" href="../../components/header/investor/header.css">
-    <link rel="stylesheet" href="../../components/header/investor/footer.css">
+    <link rel="stylesheet" href="../../components/investor/header.css">
+    <link rel="stylesheet" href="../../components/investor/footer.css">
     <link rel="stylesheet" href="../../design/investors/home.css">
     <link rel="stylesheet" href="../../design/global/global.css">
 
@@ -36,7 +36,7 @@ $all_startups = getStartups($conn);
 <body>
 
     <?php
-    include_once '../../components/header/investor/header.php';
+    include_once '../../components/investor/header.php';
     ?>
     <h1 class="title-home">HOME</h1>
     <section class="section">
@@ -75,7 +75,7 @@ $all_startups = getStartups($conn);
         ?>
     </section>
     <?php
-    include_once '../../components/header/investor/footer.php';
+    include_once '../../components/investor/footer.php';
     ?>
 </body>
 

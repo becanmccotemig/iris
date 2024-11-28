@@ -28,8 +28,8 @@ if (isset($_POST['post_id']) || isset($_GET['post_id'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- // CSS -->
-    <link rel="stylesheet" href="../../components/header/startup/header.css">
-    <link rel="stylesheet" href="../../components/header/startup/footer.css">
+    <link rel="stylesheet" href="../../components/startup/header.css">
+    <link rel="stylesheet" href="../../components/startup/footer.css">
     <link rel="stylesheet" href="../../design/startups/edit-post.css">
     <link rel="stylesheet" href="../../design/global/global.css">
     <!-- // Fonte -->
@@ -43,7 +43,7 @@ if (isset($_POST['post_id']) || isset($_GET['post_id'])) {
 
 <body>
     <?php
-    include_once '../../components/header/startup/header.php';
+    include_once '../../components/startup/header.php';
     ?>
     <div class="container main-content">
         <h1 class="title"> Atualizar post </h1>
@@ -101,7 +101,7 @@ if (isset($_POST['post_id']) || isset($_GET['post_id'])) {
         ?>
     </div>
     <?php
-    include_once '../../components/header/startup/footer.php';
+    include_once '../../components/startup/footer.php';
     ?>
 </body>
 

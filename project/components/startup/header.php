@@ -1,7 +1,7 @@
 <header class="top-header">
     <ul class="ul-top-header">
-        <li>
-            <object type="image/svg+xml" data="../icons/logo.svg"></object>
+        <li class="logo">
+            <img src="/teste-git/iris/project/components/icons/logo.svg">
         </li>
         <a href="../../views/startup/index.php">
             <li>Perfil</li>
