@@ -12,7 +12,7 @@
 // }
 
 $hostName = "ywsa8i.easypanel.host";
-$dbUser = "mysql";
+$dbUser = "root";
 $dbPassword = "MYSQLroot8110@yow";
 $dbName = "testes";
 $dbPort = 7777;
