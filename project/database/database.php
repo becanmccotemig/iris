@@ -14,7 +14,7 @@
 $hostName = "ywsa8i.easypanel.host";
 $dbUser = "root";
 $dbPassword = "MYSQLroot8110@yow";
-$dbName = "testes";
+$dbName = "iris";
 $dbPort = 7777;
 
 $conn = mysqli_connect($hostName, $dbUser, $dbPassword, $dbName, $dbPort);
