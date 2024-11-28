@@ -1,6 +1,7 @@
 <?php
 include "../../model/investor.php";
 include "../../database/database.php";
+include($_SERVER['DOCUMENT_ROOT'] . '/project/database/database.php');
 
 ?>
 
